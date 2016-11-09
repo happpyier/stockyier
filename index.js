@@ -31,10 +31,22 @@ var twitter = new Twitter({
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
-var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
+app.get([''], function(request, response) 
+{
+
+	fs.readFile('index.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.write(data);
+	});
+});
+/*
 app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
@@ -445,6 +457,7 @@ app.get("/twitter/auth", function(req, res) {
 		}
 	});
 });
+*/
 app.get(['/twitter/SignOut', '/polls/twitter/SignOut', 'newpoll/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
 	res.redirect("https://happpypr.herokuapp.com");
