@@ -5,9 +5,10 @@
 			h1 { font-size: 44px; }	
 			h2 { font-size: 18px; }
 			h2 { font-size: 26px; }
-			body { background-color: purple;}
+			body { background-color: purple; color: white;}
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; height: 40px; text-align: center; border:1px ridge gray; }
-			#mainContent { text-align: center; }
+			#mainContent { text-align: left; }
+			#topContent { text-align: center; }
 			.bigHeader { font-size: 44px;}
 			.bottom { color:black; margin-left: 15%; margin-right: 15%; }
 			.bgcolor { background-color: #E8E8E8; }
@@ -38,8 +39,8 @@
 		</script>
 	</head>
 	<body>
-		<div id="mainContent">
-			<div class='center textWhite'>
+		<div id="topContent">
+			<div class='center'>
 				<div class='bigHeader'>
 					Plans tonight?
 				</div>
@@ -53,7 +54,9 @@
 					Remember: take a cab and drink responsibly.
 				</div>
 			</div>
-			<div class="textWhite left">
+		</div>	
+		<div id="mainContent">	
+			<div>
 				<input class="searchBar" id="searchBar" name="searchBar" type="text"> </input>
 			</div>
 		</div>
