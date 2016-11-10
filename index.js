@@ -64,7 +64,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(locationVal);
+			response.write(businesses);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
