@@ -51,13 +51,7 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
-		yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
-		var prebusinesses = data.businesses;
-		var prelocation = data.region;
-		businesses = JSON.stringify(Object.keys(prebusinesses));
-		locationVal = JSON.stringify(businesses);
-		_businesses = JSON.stringify(data.total);
-		});
+
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
 			if (err) 
@@ -65,7 +59,15 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(_businesses);
+			yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
+			var prebusinesses = data.businesses;
+			var location = data.region;
+			businesses = JSON.stringify(Object.keys(prebusinesses));
+			locationVal = JSON.stringify(businesses);
+			_businesses = JSON.stringify(data.total);
+			response.write(location);
+			});
+			
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
