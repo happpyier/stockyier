@@ -9,7 +9,7 @@ var url = require("url");
 var OAuth = require('oauth').OAuth;
 var Twitter = require("node-twitter-api");
 var merge = require('merge');
-var Yelp = require('yelp');
+var yelp = require("node-yelp");
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -33,12 +33,13 @@ var twitter = new Twitter({
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
-var yelp = new Yelp({
-	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
-	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
-	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
-	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU'
-});
+var yelpclient = yelp.createClient({
+  oauth: {
+    "consumer_key": "7dAg-Gi0XU4GQK1pl-YSNw",
+    "consumer_secret": "HOg3M2ussnUbXMFY2Q3mBsrdrmo",
+    "token": "WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z",
+    "token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
+  }
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
@@ -54,14 +55,11 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		// yelp.search({ term: 'food', location: 'Montreal' }, function (err, data)
-		// {
-		  // if (err) 
-			// {
-				// return console.log(err);
-			// }
-			// response.write("Hello");
-		// });
+		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
+			var businesses = data.businesses;
+			var location = data.region;
+			response.write("Hello");
+		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
