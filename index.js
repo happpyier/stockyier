@@ -51,8 +51,8 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
-		yelp.search({ terms: "restaurant", location: "33611", limit : "20"}).then(function (data) {
-		var businesses = data.businesses[0].name;
+		yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
+		var businesses = data.businesses;
 		var prelocation = data.region;
 		locationVal = JSON.stringify(businesses);
 		_businesses = businesses;
