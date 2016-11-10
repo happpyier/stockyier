@@ -62,6 +62,7 @@ app.get([''], function(request, response)
 			var businesses = data.businesses;
 			var prelocation = data.region;
 			location = JSON.stringify(prelocation);
+			response.write("...Hello...");
 		});
 		//response.write("..." + location + "...");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
