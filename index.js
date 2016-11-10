@@ -33,7 +33,12 @@ var twitter = new Twitter({
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
-
+var yelp = new Yelp({
+	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
+	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
+	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
+	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU'
+});
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
@@ -50,16 +55,10 @@ app.get([''], function(request, response)
 			response.write(data);
 			
 		});
-		var yelp = new Yelp(
-		{
-			consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
-			consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
-			token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
-			token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU'
-		});
 		yelp.search({ term: 'restaurant', location: '33611' }).then(function (data) 
 		{
-			response.write(JSON.stringify(data));
+			//response.write(JSON.stringify(data));
+			response.write("it got here!!!!!!!!!!!!");
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
