@@ -45,8 +45,8 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
+			response.write("Yelp Data");
 		});
-		response.write("Yelp Data");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
