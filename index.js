@@ -58,7 +58,7 @@ app.get([''], function(request, response)
 		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
 			var businesses = data.businesses;
 			var location = data.region;
-			response.write("Hello");
+			//response.write("Hello");
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
