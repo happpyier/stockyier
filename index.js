@@ -8,6 +8,8 @@ var path = require("path");
 var url = require("url");
 var OAuth = require('oauth').OAuth;
 var Twitter = require("node-twitter-api");
+var merge = require('merge');
+var yelp = require('node-yelp-api');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -26,16 +28,30 @@ var clientUser;
 var clientUser;
 var pre_clientUser;
 var Almost_clientUser;
+var options = 
+{
+	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
+	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
+	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
+	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU',
+};
+var parameters = 
+{
+	term: 'restaurant',
+	location: '33611',
+};
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
+
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) 
 {
+	
 	if (_screen_name.length > 0)
 	{
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
@@ -45,7 +61,12 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write("Yelp Data");
+			yelp.search(merge(options, parameters), function (dataYelp)
+			{
+				response.write(data);
+			}
+			});
+			
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
