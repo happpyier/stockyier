@@ -63,7 +63,7 @@ app.get([''], function(request, response)
 			response.write(data);
 			yelp.search(merge(options, parameters), function (dataYelp)
 			{
-				response.write(data);
+				response.write(dataYelp);
 			}
 			});
 			
