@@ -57,6 +57,17 @@ app.get([''], function(request, response)
 			response.end();
 		});
 	}
+	else
+	{
+		fs.readFile('index.html', 'utf8', function (err,data) 
+		{
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+	}
 });
 /*
 app.get(['', '/polls'], function(request, response) {
