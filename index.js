@@ -61,11 +61,11 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search(merge(options, parameters), function (data)
-			{
-				response.write(data);
-			}
-			});
+			// yelp.search(merge(options, parameters), function (data)
+			// {
+				// response.write(data);
+			// }
+			// });
 			
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
