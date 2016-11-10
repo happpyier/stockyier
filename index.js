@@ -54,19 +54,13 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		yelp.search({ term: 'food', location: 'Montreal' }, function (err, data)
-		{
-		  if (err) 
-			{
-				return console.log(err);
-			}
-			response.write("Hello");
-		});
-		// .then(function (data) {
-		  // Response.write("data");
-		// })
-		// .catch(function (err) {
-		  // response.write("error");
+		// yelp.search({ term: 'food', location: 'Montreal' }, function (err, data)
+		// {
+		  // if (err) 
+			// {
+				// return console.log(err);
+			// }
+			// response.write("Hello");
 		// });
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
