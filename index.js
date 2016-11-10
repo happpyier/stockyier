@@ -42,13 +42,6 @@ var yelpclient = yelp.createClient({
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
 	}
 });
-client.search({
-  terms: "Café de la presse",
-  location: "BELGIUM"
-}).then(function (data) {
-  var businesses = data.businesses;
-  var location = data.region;
-});
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
@@ -63,7 +56,10 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(typeof(location));
+		});
+		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
+			var businesses = data.businesses;
+			var location = data.region;
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
