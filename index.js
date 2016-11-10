@@ -63,7 +63,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(location);
+			response.write(typeof(location));
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
