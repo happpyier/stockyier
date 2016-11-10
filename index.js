@@ -36,16 +36,27 @@ app.use(cookieParser());
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) 
 {
-
-	fs.readFile('index.html', 'utf8', function (err,data) 
+	if (_screen_name.length > 0)
 	{
-		if (err) 
+		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
-			return console.log(err);
-		}
-		response.write(data);
-		response.end();
-	});
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+		response.write("Yelp Data");
+		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
+		{
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+			response.end();
+		});
+	}
 });
 /*
 app.get(['', '/polls'], function(request, response) {

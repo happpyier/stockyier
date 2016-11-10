@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<style>
+			p { font-size: 16px; }
+			h1 { font-size: 44px; }	
+			h2 { font-size: 18px; }
+			h2 { font-size: 26px; }
+			body { color: white; background-color: purple; }
+			#bottomContent { text-align: center; }
+			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; height: 40px; text-align: center; border:1px ridge gray; }
+			#mainContent { text-align: left; }
+			#topContent { text-align: center; }
+			#yelp_results { color: white;  width: 1000px;}
+			.bigHeader { font-size: 44px;}
+			.bottom { color:black; margin-left: 15%; margin-right: 15%; }
+			.bgcolor { background-color: #E8E8E8; }
+			.center1 { margin-left: 25%; margin-right: 25%; margin-top: 50px;}
+			.center2 { margin-left: 15%; margin-right: 15%; margin-top: 50px;}
+			.center3 { margin-left: 15%; margin-right: 15%; margin-top: 50px;}
+			.currentPage { background-color:#c2c2c2; }
+			.endDiv { width: 150px !important;}
+			.hidden { display: none !important; }
+			.left { text-align: left; }
+			.middle { }
+			.red { border:1px ridge red; }
+			.resultsPoll { width: 100%; height: 40px; display: inline-block; text-align: center; line-height: 40px; margin-left: 15%; margin-right: 15%; text-decoration: none; }
+			.searchBar { border:1px ridge white; background-color: purple; width: 750px; padding: 10px; color: white; margin-right: 50px;}
+			.searchBarGo { border:1px ridge white; background-color: purple; width: 200px; padding: 10px; color: white; }
+			.smallHeader { font-size: 18px; }
+			.spacer { height: 20px; background-color:#FFFFFF; }
+			.textWhite { color: white; }
+			.top { text-align: right; height: 40px; }
+			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
+			
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+			function loadTwitter()
+			{
+				var URL = "https://happpypr.herokuapp.com/twitter/auth";
+				var name = "AuthWindow";
+				var specs = "height=500,width=500";
+				window.open(URL,name,specs);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="topContent">
+			<div class='center1'>
+				<div class='bigHeader'>
+					Plans tonight?
+				</div>
+				<div class='bigHeader'>
+					Img-->Location Img-->Car Img-->Drink
+				</div>
+				<div class='smallHeader'>
+					See which bars are hoppin' tonight and RSVP ahead of time!
+				</div>
+				<div class='smallHeader'>
+					Remember: take a cab and drink responsibly.
+				</div>
+			</div>
+		</div>	
+		<div id="mainContent">	
+			<div class="center2">
+				<input class="searchBar" id="searchBar" name="searchBar" type="text" placeholder="Where you at?"> </input>
+				<button class="searchBarGo" id="searchBarGo" name="searchBarGo"> Go </button>
+			</div>
+			<div class="center3">
+				<div id="yelp_results" class="red">
+	
+					
