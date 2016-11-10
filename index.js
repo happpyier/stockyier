@@ -54,9 +54,15 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		 yelp.search({ term: 'food', location: 'Montreal' }).then(function (data) {
-		 response.write("hello");
-		 });
+		yelp.search({ term: 'food', location: 'Montreal' })
+		.then(function (data) {
+		  Response.write("data");
+		  console.log(data);
+		})
+		.catch(function (err) {
+		  response.write("error");
+		  console.error(err);
+		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
