@@ -57,14 +57,14 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write("...Hello2...");
-		});
-		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
+			yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
 			var businesses = data.businesses;
 			var prelocation = data.region;
 			location = JSON.stringify(prelocation);
 			response.write("...Hello1...");
+			});
 		});
+
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
