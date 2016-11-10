@@ -53,11 +53,13 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
+			response.write("Before Yelp...");
 			yelp.search({ term: 'restaurant', location: '33611' }).then(function (data) 
 			{
-			//response.write(JSON.stringify(data));
-			response.write("it got here!!!!!!!!!!!!");
+				//response.write(JSON.stringify(data));
+				response.write("it got here!!!!!!!!!!!!");
 			});
+			response.write("...After Yelp");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
