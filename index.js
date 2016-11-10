@@ -54,10 +54,14 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		yelp.search({ term: 'food', location: 'Montreal' }, function (data) {
-		  Response.write("data");
-		  //console.log(data);
-		}));
+		yelp.search({ term: 'food', location: 'Montreal' }, function (err, data)
+		{
+		  if (err) 
+			{
+				return console.log(err);
+			}
+			response.write("Hello");
+		});
 		// .then(function (data) {
 		  // Response.write("data");
 		// })
