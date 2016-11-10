@@ -49,23 +49,23 @@ app.get([''], function(request, response)
 			response.write(data);
 			
 		});
-		// var options = 
-		// {
-			// consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
-			// consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
-			// token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
-			// token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU',
-		// };
-		// var parameters = 
-		// {
-			// term: 'restaurant',
-			// location: '33611',
-		// };
-		// yelp.search(merge(options, parameters), (data) => {
-		// console.log(data);
-		// }, (err) => {
-		// console.error(err);
-		// });
+		var options = 
+		{
+			consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
+			consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
+			token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
+			token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU',
+		};
+		var parameters = 
+		{
+			term: 'restaurant',
+			location: '33611',
+		};
+		yelp.search(merge(options, parameters), (data) => {
+		console.log(data);
+		}, (err) => {
+		console.error(err);
+		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
