@@ -29,6 +29,8 @@ var clientUser;
 var pre_clientUser;
 var locationVal;
 var _businesses;
+var businesses;
+var location;
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
@@ -60,8 +62,8 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
-			var prebusinesses = data.businesses;
-			var location = data.region;
+			businesses = data.businesses;
+			location = data.region;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
 			//_businesses = JSON.stringify(data.total);
