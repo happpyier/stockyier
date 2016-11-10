@@ -57,7 +57,7 @@ app.get([''], function(request, response)
 		});
 		yelp.search({ term: 'restaurant', location: '33611' }).then(function (data) 
 		{
-			response.write(data);
+			response.write(JSON.stringify(data));
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
