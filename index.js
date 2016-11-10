@@ -66,7 +66,7 @@ app.get([''], function(request, response)
 			locationVal = typeof(JSON.stringify(location));
 			_businesses = JSON.stringify(data.total);
 			});
-			response.write(locationVal);
+			//response.write(locationVal);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
