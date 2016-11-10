@@ -42,11 +42,7 @@ var yelp = yelp.createClient({
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
 	}
 });
-yelp.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
-var businesses = data.businesses;
-var prelocation = data.region;
-locationVal = JSON.stringify(prelocation);
-});
+
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
@@ -54,6 +50,11 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
+		yelp.search({ terms: "restaurant", location: "33611" }).then(function (data) {
+		var businesses = data.businesses;
+		var prelocation = data.region;
+		locationVal = JSON.stringify(data);
+		});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
 			if (err) 
@@ -61,7 +62,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write("Hello Kitty" + locationVal);
+			response.write(locationVal);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
