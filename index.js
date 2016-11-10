@@ -9,7 +9,7 @@ var url = require("url");
 var OAuth = require('oauth').OAuth;
 var Twitter = require("node-twitter-api");
 var merge = require('merge');
-var yelp = require('node-yelp-api');
+var Yelp = require('yelp');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -33,7 +33,7 @@ var twitter = new Twitter({
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
-var yelpApp = new yelp({
+var yelp = new Yelp({
 	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
 	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
 	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
