@@ -28,6 +28,7 @@ var clientUser;
 var clientUser;
 var pre_clientUser;
 var locationVal;
+var _businesses;
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
@@ -54,6 +55,7 @@ app.get([''], function(request, response)
 		var businesses = data.businesses;
 		var prelocation = data.region;
 		locationVal = JSON.stringify(businesses);
+		_businesses = businesses;
 		});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
@@ -62,7 +64,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(locationVal);
+			response.write(_businesses);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
