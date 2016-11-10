@@ -33,12 +33,12 @@ var options =
 	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
 	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
 	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
-	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU',
+	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU'
 };
 var parameters = 
 {
 	term: 'restaurant',
-	location: '33611',
+	location: '33611'
 };
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
