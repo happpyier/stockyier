@@ -62,9 +62,9 @@ app.get([''], function(request, response)
 			yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
 			var prebusinesses = data.businesses;
 			var location = data.region;
-			businesses = JSON.stringify(Object.keys(prebusinesses));
-			locationVal = typeof(JSON.stringify(location));
-			_businesses = JSON.stringify(data.total);
+			//businesses = JSON.stringify(Object.keys(prebusinesses));
+			//locationVal = typeof(JSON.stringify(location));
+			//_businesses = JSON.stringify(data.total);
 			});
 			//response.write(locationVal);
 		});
