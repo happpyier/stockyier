@@ -50,10 +50,10 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
-		yelp.search({ terms: "restaurant", location: "33611" }).then(function (data) {
+		yelp.search({ terms: "restaurant", location: "33611", limit : "20"}).then(function (data) {
 		var businesses = data.businesses;
 		var prelocation = data.region;
-		locationVal = JSON.stringify(data);
+		locationVal = JSON.stringify(businesses);
 		});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
