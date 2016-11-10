@@ -61,9 +61,9 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search(merge(options, parameters), function (dataYelp)
+			yelp.search(merge(options, parameters), function (data)
 			{
-				response.write(dataYelp);
+				response.write(data);
 			}
 			});
 			
