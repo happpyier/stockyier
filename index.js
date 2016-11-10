@@ -66,6 +66,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
+			response.end();
 		});
 	}
 });
