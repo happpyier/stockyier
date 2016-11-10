@@ -63,7 +63,7 @@ app.get([''], function(request, response)
 			var prebusinesses = data.businesses;
 			var location = data.region;
 			businesses = JSON.stringify(Object.keys(prebusinesses));
-			locationVal = typeof(location);
+			locationVal = typeof(JSON.stringify(location);
 			_businesses = JSON.stringify(data.total);
 			});
 			response.write(locationVal);
