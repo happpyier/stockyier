@@ -34,16 +34,18 @@ var twitter = new Twitter({
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
-var yelpclient = yelp.createClient({
+var yelp = yelp.createClient({
 	oauth: {
 		"consumer_key": "7dAg-Gi0XU4GQK1pl-YSNw",
 		"consumer_secret": "HOg3M2ussnUbXMFY2Q3mBsrdrmo",
 		"token": "WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z",
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
-	},
-	httpClient: {
-    maxSockets: 25  // ~> Default is 10 
 	}
+});
+yelp.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
+var businesses = data.businesses;
+var prelocation = data.region;
+locationVal = prelocation;
 });
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
@@ -59,12 +61,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
-			var businesses = data.businesses;
-			var prelocation = data.region;
-			location = JSON.stringify(prelocation);
-			response.write("...Hello1...");
-			});
+			response.write(locationVal);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
