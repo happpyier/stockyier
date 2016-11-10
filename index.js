@@ -28,18 +28,6 @@ var clientUser;
 var clientUser;
 var pre_clientUser;
 var Almost_clientUser;
-var options = 
-{
-	consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
-	consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
-	token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
-	token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU'
-};
-var parameters = 
-{
-	term: 'restaurant',
-	location: '33611'
-};
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -67,16 +55,25 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelpApp.search( function(err, data) 
-			{
-				if (err)
-				{
-					return console.log(err);
-				}
-				response.write(data);
-			});
 			
 		});
+		// var options = 
+		// {
+			// consumer_key: '7dAg-Gi0XU4GQK1pl-YSNw',
+			// consumer_secret: 'HOg3M2ussnUbXMFY2Q3mBsrdrmo',
+			// token: 'WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z',
+			// token_secret: 'GRHNx-coBSsG_wFboFlw1mhX6KU',
+		// };
+		// var parameters = 
+		// {
+			// term: 'restaurant',
+			// location: '33611',
+		// };
+		// yelp.search(merge(options, parameters), (data) => {
+		// console.log(data);
+		// }, (err) => {
+		// console.error(err);
+		// });
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
