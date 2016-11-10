@@ -59,10 +59,13 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search(merge(options, parameters), (data) => {
-			response.write(data);
-			}, (err) => {
-			console.error(err);
+			yelp.search(merge(options, parameters), function(err, data) 
+			{
+				if (err)
+				{
+					return console.log(err);
+				}
+				response.write(data);
 			});
 			
 		});
