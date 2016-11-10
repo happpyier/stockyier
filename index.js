@@ -53,14 +53,12 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write("Before Yelp...");
-			yelp.search({ term: 'food', location: 'Montreal' }.then(function (data) {
-			//console.log(data);
-			response.write("hello");
-			});
-			response.write("...After Yelp");
 		});
-
+		response.write("Before Yelp...");
+		// yelp.search({ term: 'food', location: 'Montreal' }.then(function (data) {
+		// response.write("hello");
+		// });
+		response.write("...After Yelp");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
