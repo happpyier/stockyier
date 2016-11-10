@@ -42,9 +42,12 @@ var yelpclient = yelp.createClient({
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
 	}
 });
-yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
-	var businesses = JSON.stringify(data.businesses);
-	var location = data.region;
+client.search({
+  terms: "Café de la presse",
+  location: "BELGIUM"
+}).then(function (data) {
+  var businesses = data.businesses;
+  var location = data.region;
 });
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
@@ -60,7 +63,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(businesses);
+			response.write(location);
 		});
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
