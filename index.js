@@ -55,7 +55,7 @@ app.get([''], function(request, response)
 			response.write(data);
 			response.write("Before Yelp...");
 			yelp.search({ term: 'food', location: 'Montreal' }, function (data) {
-			  console.log(data);
+			  //console.log(data);
 			  response.write("Yelp wins");
 			});
 			response.write("...After Yelp");
