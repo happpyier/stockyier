@@ -19,7 +19,7 @@ var _requestSecret;
 var _requestToken;
 var _accessToken;
 var _accessTokenSecret;
-var _screen_name = "";
+var _screen_name = "test";
 var _clientIP;
 var _clientUser;
 var clientUser;
