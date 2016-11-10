@@ -27,6 +27,7 @@ var _clientUser;
 var clientUser;
 var clientUser;
 var pre_clientUser;
+var locationVal;
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
@@ -59,7 +60,7 @@ app.get([''], function(request, response)
 		});
 		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
 			var businesses = data.businesses;
-			var location = data.region;
+			location = data.region;
 		});
 		response.write("..." + location + "...");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
