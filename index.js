@@ -61,11 +61,11 @@ app.get([''], function(request, response)
 			term: 'restaurant',
 			location: '33611',
 		};
-		yelp.search(merge(options, parameters), (data) => {
-		console.log(data);
-		}, (err) => {
-		console.error(err);
-		});
+		// yelp.search(merge(options, parameters), (data) => {
+		// console.log(data);
+		// }, (err) => {
+		// console.error(err);
+		// });
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
