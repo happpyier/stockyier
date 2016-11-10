@@ -55,11 +55,11 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
-			var businesses = data.businesses;
-			var location = data.region;
+		// yelpclient.search({ terms: "Café de la presse", location: "BELGIUM" }).then(function (data) {
+			// var businesses = data.businesses;
+			// var location = data.region;
 			//response.write("Hello");
-		});
+		// });
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
