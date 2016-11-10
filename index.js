@@ -54,15 +54,16 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 		});
-		yelp.search({ term: 'food', location: 'Montreal' })
-		.then(function (data) {
+		yelp.search({ term: 'food', location: 'Montreal' }, function (data) {
 		  Response.write("data");
-		  console.log(data);
-		})
-		.catch(function (err) {
-		  response.write("error");
-		  console.error(err);
-		});
+		  //console.log(data);
+		}));
+		// .then(function (data) {
+		  // Response.write("data");
+		// })
+		// .catch(function (err) {
+		  // response.write("error");
+		// });
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
