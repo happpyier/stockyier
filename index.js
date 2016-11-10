@@ -52,7 +52,7 @@ app.get([''], function(request, response)
 	if (_screen_name.length > 0)
 	{
 		yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
-		var businesses = data.businesses[0];
+		var businesses = data.businesses;
 		var prelocation = data.region;
 		locationVal = JSON.stringify(businesses);
 		_businesses = businesses;
@@ -64,7 +64,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			response.write(businesses);
+			response.write(locationVal);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
