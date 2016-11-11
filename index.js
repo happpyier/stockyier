@@ -70,8 +70,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
-			// _testData = data;
-			// _count = JSON.stringify(_testData);
+
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
@@ -96,7 +95,7 @@ app.get([''], function(request, response)
 			{
 				response.write("<div>" + _buis_name_Array[i] + "</div>");
 			}
-			//response.write(_count);
+
 			response.write(data);
 			response.end();
 		});
