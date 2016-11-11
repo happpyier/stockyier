@@ -35,7 +35,6 @@ var _name = "";
 var businesses = "";
 var pre_buis_snippet;
 var _buis_snippet = "";
-var _patt_buis_snippet = new RegExp("/^.*(\n|\r)$/");
 var pre_patt_buis_snippet_val;
 var _buis_snippet_ArrayVal
 var _snippet = "";
@@ -96,7 +95,7 @@ app.get([''], function(request, response)
 			}
 			for (i=0; i<20; i++)
 			{
-				_buis_snippet_ArrayVal = _patt_buis_snippet.exec(_buis_snippet_Array[i]);
+				_buis_snippet_ArrayVal = _buis_snippet_Array[i].match(/^.*(\n|\r)$/);
 				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_ArrayVal + "</div>");
 			 }
 
