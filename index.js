@@ -76,7 +76,7 @@ app.get([''], function(request, response)
 				_name = _name + data.businesses[i].name + "|";
 			}
 			pre_buis_name = JSON.stringify(_name);
-			_buis_name = pre_buis_name.substring(0, pre_buis_name.length - 1);
+			_buis_name = pre_buis_name.substring(0, pre_buis_name.length - 2);
 			});
 			//response.write("<div>"_businesses + "</div>");
 		});
