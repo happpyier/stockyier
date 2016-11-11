@@ -66,7 +66,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "restaurant", location: "33611", limit : "20"}).then(function (data) {
+			yelp.search({ terms: "", location: "33611", limit : "20"}).then(function (data) {
 	
 			//businesses = data.businesses;
 			location = data.region;
