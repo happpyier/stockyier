@@ -63,14 +63,15 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
-			for (i=1; i<2; i++)
-			{
-				businesses = businesses + data.businesses[i].name;
-			}
+			yelp.search({ terms: "restaurant", location: "33611", limit : "20"}).then(function (data) {
+	
 			//businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
+			for (i=0; i<_count; i++)
+			{
+				businesses = businesses + data.businesses[i].name;
+			}
 			_businesses = JSON.stringify(businesses);
 			});
 			response.write(_businesses + "...Count-->" + _count + "...end");
