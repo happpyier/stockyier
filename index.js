@@ -68,7 +68,7 @@ app.get([''], function(request, response)
 			//businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
-			for (i=0; i<_count; i++)
+			for (i=0; i<20; i++)
 			{
 				businesses = businesses + data.businesses[i].name;
 			}
