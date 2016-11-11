@@ -72,11 +72,9 @@ app.get([''], function(request, response)
 			_count = businesses.length;
 			for (i=0; i<20; i++)
 			{
-				_name = data.businesses[i].name;
-				_buis_name = JSON.stringify(_name);
-				response.write("<div>" + _buis_name + "</div>");
+				_name = _name + data.businesses[i].name + "|";
 			}
-			//_buis_name = JSON.stringify(_name) = "|";
+			_buis_name = JSON.stringify(_name);
 			});
 			//response.write("<div>"_businesses + "</div>");
 		});
@@ -87,6 +85,7 @@ app.get([''], function(request, response)
 			{
 				return console.log(err);
 			}
+			response.write("<div>" + _buis_name + "</div>");
 			response.write(data);
 			response.end();
 		});
