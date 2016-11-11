@@ -28,12 +28,16 @@ var clientUser;
 var clientUser;
 var pre_clientUser;
 var locationVal;
+var pre_buis_name;
 var _businesses;
 var _buis_name = "";
 var _name = "";
 var businesses = "";
-var pre_buis_name;
+var pre_buis_snippet;
+var buis_snippet = "";
+var _snippet = "";
 var location;
+var locationStored = "";
 var _count;
 var i;
 var Almost_clientUser;
@@ -50,7 +54,6 @@ var yelp = yelp.createClient({
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
 	}
 });
-
 app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
@@ -66,7 +69,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "", location: "33611", limit : "20"}).then(function (data) {
+			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
 	
 			//businesses = data.businesses;
 			location = data.region;
@@ -74,12 +77,16 @@ app.get([''], function(request, response)
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
+				_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
 			}
 			pre_buis_name = JSON.stringify(_name);
+			pre_buis_snippet =JSON.stringify(_snippet);
 			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
+			buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			});
 		});
 			_buis_name_Array = _buis_name.split("|");
+			buis_snippet_Array = buis_snippet.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
@@ -88,7 +95,10 @@ app.get([''], function(request, response)
 			}
 			for (i=0; i<20; i++)
 			{
-				response.write("<div>" + _buis_name_Array[i] + "</div>");
+				response.write(
+					"<div>" + _buis_name_Array[i] + "<br/>" + buis_snippet_Array[i] + "</div>"
+					
+				);
 			}
 			
 			response.write(data);
