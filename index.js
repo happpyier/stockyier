@@ -69,7 +69,7 @@ app.get([''], function(request, response)
 				for (i=0; i<20; i++)
 				{
 					_name = _name + data.businesses[i].name + "|";
-					_snippet = _snippet + data.businesses[i].snippet_text.match(/^\w\n$/) + "|"; 
+					_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
 				}
 				pre_buis_name = JSON.stringify(_name);
 				pre_buis_snippet = JSON.stringify(_snippet);
