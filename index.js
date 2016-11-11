@@ -72,7 +72,7 @@ app.get([''], function(request, response)
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
 	
-			pre_test_data = businesses = data.businesses;
+			pre_test_data = businesses = data.businesses[0];
 			_test_data = JSON.stringify(pre_test_data);
 			for (i=0; i<20; i++)
 			{
