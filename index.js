@@ -74,7 +74,7 @@ app.get([''], function(request, response)
 			{
 				_name = data.businesses[i].name;
 				_buis_name = JSON.stringify(_name);
-				response.write("<div>" + _name + "</div>");
+				response.write("<div>" + _buis_name + "</div>");
 			}
 			//_buis_name = JSON.stringify(_name) = "|";
 			});
