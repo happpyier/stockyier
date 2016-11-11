@@ -61,14 +61,14 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "restaurant", location: "33611", limit : "1"}).then(function (data) {
+			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
 			businesses = data.businesses;
 			location = data.region;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
 			_businesses = JSON.stringify(location);
 			});
-			response.write("This is where yelp data will go" + _businesses);
+			response.write("This is where yelp data will go..." + businesses + "...end");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
