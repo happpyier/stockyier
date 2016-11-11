@@ -71,7 +71,7 @@ app.get([''], function(request, response)
 			//locationVal = typeof(JSON.stringify(location));
 			});
 			businesses.forEach(function (item) {
-			_businesses = JSON.stringify(item.name);
+			_businesses = item["name"];
 			response.write(_businesses + "...");
 			});
 			// foreach (i=0; i<_count; i++)
