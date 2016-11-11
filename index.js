@@ -80,14 +80,18 @@ app.get([''], function(request, response)
 			});
 			//response.write("<div>"_businesses + "</div>");
 		});
-
+			_buis_name_Array = _buis_name.str.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
 			{
 				return console.log(err);
 			}
-			response.write("<div>" + _buis_name + "</div>");
+			for (i=0; i<20; i++)
+			{
+				response.write("<div>" + _buis_name_Array[i] + "</div>");
+			}
+			
 			response.write(data);
 			response.end();
 		});
