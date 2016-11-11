@@ -32,6 +32,7 @@ var _businesses;
 var businesses;
 var location;
 var _count;
+var i;
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
@@ -63,14 +64,18 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
-			businesses = data.businesses;
+			businesses = data.businesses.name;
+			name
 			location = data.region;
 			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
-			_businesses = JSON.stringify(data.businesses);
+			for (i=0; i<_count; i++)
+			{
+				response.write("name:" + data.businesses[i].name + "...end");
+			}
 			});
-			response.write("This is where yelp data will go..." + _businesses + "...Count-->" + _count + "...end");
+
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
