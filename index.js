@@ -65,7 +65,6 @@ app.get([''], function(request, response)
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
 			businesses = data.businesses.name;
-			name
 			location = data.region;
 			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
