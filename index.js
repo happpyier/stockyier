@@ -29,7 +29,7 @@ var clientUser;
 var pre_clientUser;
 var locationVal;
 var _businesses;
-var businesses;
+var businesses = "";
 var location;
 var _count;
 var i;
@@ -64,7 +64,7 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
-			for (i=0; i<2; i++)
+			for (i=1; i<2; i++)
 			{
 				businesses = businesses + data.businesses[i].name;
 			}
