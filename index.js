@@ -31,6 +31,7 @@ var locationVal;
 var _businesses;
 var businesses;
 var location;
+var _count;
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
@@ -64,11 +65,12 @@ app.get([''], function(request, response)
 			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
 			businesses = data.businesses;
 			location = data.region;
+			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
 			_businesses = JSON.stringify(data.businesses);
 			});
-			response.write("This is where yelp data will go..." + _businesses + "...end");
+			response.write("This is where yelp data will go..." + _businesses + "...Count-->" + _count + "...end");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
