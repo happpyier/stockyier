@@ -36,6 +36,9 @@ var businesses = "";
 var pre_buis_snippet;
 var _buis_snippet = "";
 var _snippet = "";
+var pre_buis_image_url;
+var _buis_image_url = "";
+var _image_url = "";
 var location;
 var locationStored = "33611";
 var _testData;
@@ -66,12 +69,15 @@ app.get([''], function(request, response)
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
-				_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
+				_snippet = _snippet + data.businesses[i].snippet_text + "|";
+				_image_url = _image_url + data.businesses[i].image_url + "|";				
 			}
 			pre_buis_name = JSON.stringify(_name);
 			pre_buis_snippet = JSON.stringify(_snippet);
+			pre_buis_image_url = JSON.stringify(_image_url);
 			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
+			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
 		});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
@@ -86,13 +92,14 @@ app.get([''], function(request, response)
 		{
 			_buis_name_Array = _buis_name.split("|");
 			_buis_snippet_Array = _buis_snippet.split("|");
+			_buis_image_url_Array = _buis_image_url.split("|");
 			if (err) 
 			{
 				return console.log(err);
 			}
 			for (i=0; i<20; i++)
 			{
-				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_Array[i] + "</div>");
+				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img>" + _buis_name_Array[i] + "..." + _buis_snippet_Array[i] + "</div>");
 			 }
 
 			response.write(data);
