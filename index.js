@@ -38,6 +38,7 @@ var _buis_snippet = "";
 var _snippet = "";
 var location;
 var locationStored = "33611";
+var _testData;
 var _count;
 var i;
 var Almost_clientUser;
@@ -69,8 +70,9 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "restaurant", location: locationStored, limit : "2"}).then(function (data) {
-			_count = JSON.stringify(data.businesses[0]);
+			yelp.search({ terms: "restaurant", location: locationStored, limit : "1"}).then(function (data) {
+			testData = data.businesses;
+			_count = JSON.stringify(testData);
 			// for (i=0; i<20; i++)
 			// {
 				// _name = _name + data.businesses[i].name + "|";
