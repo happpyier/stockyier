@@ -30,7 +30,7 @@ var pre_clientUser;
 var locationVal;
 var _businesses;
 var _buis_name = "";
-var _name;
+var _name = "";
 var businesses = "";
 var location;
 var _count;
@@ -70,7 +70,7 @@ app.get([''], function(request, response)
 			//businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
-			for (i=1; i<20; i++)
+			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
 			}
