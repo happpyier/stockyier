@@ -33,8 +33,6 @@ var _businesses;
 var _buis_name = "";
 var _name = "";
 var businesses = "";
-var _buis_name_Array;
-var _buis_snippet_Array;
 var pre_buis_snippet;
 var _buis_snippet = "";
 var _snippet = "";
