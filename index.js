@@ -35,8 +35,8 @@ var _name = "";
 var businesses = "";
 var pre_buis_snippet;
 var _buis_snippet = "";
-var pre_patt_buis_snippet_val;
-var _buis_snippet_ArrayVal
+var _patt_buis_snippet = new RegExp("/^.*(\n|\r)$/");
+pre_patt_buis_snippet_val;
 var _snippet = "";
 var location;
 var locationStored = "33611";
@@ -69,7 +69,7 @@ app.get([''], function(request, response)
 				for (i=0; i<20; i++)
 				{
 					_name = _name + data.businesses[i].name + "|";
-					_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
+					_snippet = _snippet + data.businesses[i].snippet_text.match(/^\w\n$/) + "|"; 
 				}
 				pre_buis_name = JSON.stringify(_name);
 				pre_buis_snippet = JSON.stringify(_snippet);
@@ -95,9 +95,8 @@ app.get([''], function(request, response)
 			}
 			for (i=0; i<20; i++)
 			{
-				_buis_snippet_ArrayVal = _buis_snippet_Array[i].match(/^.*(\n|\r)$/);
-				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_ArrayVal + "</div>");
-			 }
+				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_Array + "</div>");
+			}
 
 			response.write(data);
 			response.end();
