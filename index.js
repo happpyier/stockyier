@@ -30,6 +30,7 @@ var pre_clientUser;
 var locationVal;
 var _businesses;
 var _buis_name = "";
+var _name;
 var businesses = "";
 var location;
 var _count;
@@ -72,7 +73,8 @@ app.get([''], function(request, response)
 			for (i=0; i<20; i++)
 			{
 				_name = data.businesses[i].name;
-				response.write("<div>"_name + "</div>");
+				_buis_name = JSON.stringify(_name);
+				response.write("<div>" + _name + "</div>");
 			}
 			//_buis_name = JSON.stringify(_name) = "|";
 			});
