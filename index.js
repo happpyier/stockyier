@@ -69,8 +69,8 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			response.write(data);
-			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
-			_count = JSON.stringify(data.businesses[0]);
+			yelp.search({ terms: "restaurant", location: locationStored, limit : "1"}).then(function (data) {
+			_count = JSON.stringify(data.businesses);
 			// for (i=0; i<20; i++)
 			// {
 				// _name = _name + data.businesses[i].name + "|";
