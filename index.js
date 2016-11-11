@@ -38,8 +38,7 @@ var _buis_snippet = "";
 var _snippet = "";
 var location;
 var locationStored = "";
-var pre_test_data;
-var _test_data;
+var _count;
 var i;
 var Almost_clientUser;
 var twitter = new Twitter({
@@ -71,34 +70,31 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
-	
-			pre_test_data = businesses = data.businesses;
-			_test_data = JSON.stringify(pre_test_data);
-			for (i=0; i<20; i++)
-			{
-				_name = _name + data.businesses[i].name + "|";
-				//_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
-			}
-			pre_buis_name = JSON.stringify(_name);
-			//pre_buis_snippet = JSON.stringify(_snippet);
-			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-			//_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
+			_count = Object.keys(data.businesses[0]);
+			// for (i=0; i<20; i++)
+			// {
+				// _name = _name + data.businesses[i].name + "|";
+				// _snippet = _snippet + data.businesses[i].snippet_text + "|"; 
+			// }
+			// pre_buis_name = JSON.stringify(_name);
+			// pre_buis_snippet = JSON.stringify(_snippet);
+			// _buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
+			// _buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			});
 		});
-			_buis_name_Array = _buis_name.split("|");
-			//_buis_snippet_Array = _buis_snippet.split("|");
+			// _buis_name_Array = _buis_name.split("|");
+			// buis_snippet_Array = _buis_snippet.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
 			{
 				return console.log(err);
 			}
-			response.write(_test_data);
-			for (i=0; i<20; i++)
-			{
-				 response.write("<div>" + _buis_name_Array[i] + "</div>");
-			}
-			
+			// for (i=0; i<20; i++)
+			// {
+				// response.write("<div>" + _buis_name_Array[i] + buis_snippet_Array[i] + "</div>");
+			// }
+			response.write(_count);
 			response.write(data);
 			response.end();
 		});
