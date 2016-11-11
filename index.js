@@ -78,9 +78,8 @@ app.get([''], function(request, response)
 			pre_buis_name = JSON.stringify(_name);
 			_buis_name = pre_buis_name.substring(0, pre_buis_name.length - 2);
 			});
-			//response.write("<div>"_businesses + "</div>");
 		});
-			_buis_name_Array = _buis_name.str.split("|");
+			_buis_name_Array = _buis_name.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
