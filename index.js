@@ -70,7 +70,7 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "2"}).then(function (data) {
-			_testData = data.businesses;
+			_testData = data.businesses[0];
 			_count = JSON.stringify(_testData);
 			// for (i=0; i<20; i++)
 			// {
@@ -84,7 +84,7 @@ app.get([''], function(request, response)
 			});
 		});
 			// _buis_name_Array = _buis_name.split("|");
-			// buis_snippet_Array = _buis_snippet.split("|");
+			// _buis_snippet_Array = _buis_snippet.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
@@ -93,7 +93,7 @@ app.get([''], function(request, response)
 			}
 			// for (i=0; i<20; i++)
 			// {
-				// response.write("<div>" + _buis_name_Array[i] + buis_snippet_Array[i] + "</div>");
+				// response.write("<div>" + _buis_name_Array[i] + _buis_snippet_Array[i] + "</div>");
 			// }
 			response.write(_count);
 			response.write(data);
