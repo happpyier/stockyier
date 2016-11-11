@@ -32,6 +32,7 @@ var _businesses;
 var _buis_name = "";
 var _name = "";
 var businesses = "";
+var pre_buis_name;
 var location;
 var _count;
 var i;
@@ -74,7 +75,8 @@ app.get([''], function(request, response)
 			{
 				_name = _name + data.businesses[i].name + "|";
 			}
-			_buis_name = JSON.stringify(_name);
+			pre_buis_name = JSON.stringify(_name);
+			_buis_name = pre_buis_name.substring(0, _buis_name.length - 1);
 			});
 			//response.write("<div>"_businesses + "</div>");
 		});
