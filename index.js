@@ -69,10 +69,10 @@ app.get([''], function(request, response)
 			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
-			_businesses = JSON.stringify(data.businesses[0].name);
 			});
 			for (i=0; i<_count; i++)
 			{
+				_businesses = JSON.stringify(data.businesses[i].name);
 				response.write(_businesses + "...Count-->" + _count + "...end");
 			}
 		});
