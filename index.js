@@ -70,31 +70,31 @@ app.get([''], function(request, response)
 				return console.log(err);
 			}
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "2"}).then(function (data) {
-			_testData = data;
-			_count = JSON.stringify(_testData);
-			// for (i=0; i<20; i++)
-			// {
-				// _name = _name + data.businesses[i].name + "|";
-				// _snippet = _snippet + data.businesses[i].snippet_text + "|"; 
-			// }
-			// pre_buis_name = JSON.stringify(_name);
-			// pre_buis_snippet = JSON.stringify(_snippet);
-			// _buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-			// _buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
+			// _testData = data;
+			// _count = JSON.stringify(_testData);
+			for (i=0; i<20; i++)
+			{
+				_name = _name + data.businesses[i].name + "|";
+				_snippet = _snippet + data.businesses[i].snippet_text + "|"; 
+			}
+			pre_buis_name = JSON.stringify(_name);
+			pre_buis_snippet = JSON.stringify(_snippet);
+			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
+			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			});
 		});
-			// _buis_name_Array = _buis_name.split("|");
-			// _buis_snippet_Array = _buis_snippet.split("|");
+			_buis_name_Array = _buis_name.split("|");
+			_buis_snippet_Array = _buis_snippet.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
 			{
 				return console.log(err);
 			}
-			// for (i=0; i<20; i++)
-			// {
-				// response.write("<div>" + _buis_name_Array[i] + _buis_snippet_Array[i] + "</div>");
-			// }
+			for (i=0; i<20; i++)
+			{
+				response.write("<div>" + _buis_name_Array[i] + "</div>");
+			}
 			response.write(_count);
 			response.write(data);
 			response.end();
