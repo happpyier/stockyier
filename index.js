@@ -67,18 +67,9 @@ app.get([''], function(request, response)
 			businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
-			//businesses = JSON.stringify(Object.keys(prebusinesses));
-			//locationVal = typeof(JSON.stringify(location));
+			_businesses = JSON.stringify(businesses);
 			});
-			businesses.forEach(function (item) {
-			_businesses = item["name"];
-			response.write(_businesses + "...");
-			});
-			// foreach (i=0; i<_count; i++)
-			// {
-				// _businesses = JSON.stringify(data.businesses[i].name);
-				// response.write(_businesses + "...Count-->" + _count + "...end");
-			// }
+			response.write(_businesses + "...Count-->" + _count + "...end");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
