@@ -64,14 +64,14 @@ app.get([''], function(request, response)
 			}
 			response.write(data);
 			yelp.search({ terms: "restaurant", location: "33611", limit : "2"}).then(function (data) {
-			businesses = data.businesses.name;
+			businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
 			for (i=0; i<_count; i++)
 			{
-				response.write("name:" + JSON.stringify(data.businesses) + "...end");
+				response.write("name:" + JSON.stringify(businesses) + "...end");
 			}
 			});
 
