@@ -68,7 +68,7 @@ app.get([''], function(request, response)
 			{
 				businesses = businesses + data.businesses[i].name;
 			}
-			businesses = data.businesses;
+			//businesses = data.businesses;
 			location = data.region;
 			_count = businesses.length;
 			_businesses = JSON.stringify(businesses);
