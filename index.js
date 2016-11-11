@@ -72,7 +72,7 @@ app.get([''], function(request, response)
 				pre_buis_name = JSON.stringify(_name);
 				pre_buis_snippet = JSON.stringify(_snippet);
 				_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-				_buis_snippet = pre_buis_snippet.match(/^.*\n$/m)[0];
+				_buis_snippet = pre_buis_snippet.match(/(.+)/);
 			});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
