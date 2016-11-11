@@ -98,7 +98,7 @@ app.get([''], function(request, response)
 			response.write(_test_data);
 			for (i=0; i<20; i++)
 			{
-				// response.write("<div>" + _buis_name_Array[i] + buis_snippet_Array[i] + "</div>");
+				 response.write("<div>" + _buis_name_Array[i] + "</div>");
 			}
 			
 			response.write(data);
