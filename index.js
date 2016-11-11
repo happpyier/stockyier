@@ -68,7 +68,7 @@ app.get([''], function(request, response)
 			//locationVal = typeof(JSON.stringify(location));
 			_businesses = JSON.stringify(location);
 			});
-			response.write("This is where yelp data will go..." + businesses + "...end");
+			response.write("This is where yelp data will go..." + location + "...end");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
