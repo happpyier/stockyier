@@ -69,6 +69,7 @@ app.get([''], function(request, response)
 			{
 				return console.log(err);
 			}
+			
 			yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
 
 			for (i=0; i<20; i++)
@@ -81,6 +82,7 @@ app.get([''], function(request, response)
 			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			});
+			response.write(data);
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
@@ -91,10 +93,10 @@ app.get([''], function(request, response)
 			{
 				return console.log(err);
 			}
-			// for (i=0; i<20; i++)
-			// {
-				// response.write("<div>" + _buis_name_Array[i] + "</div>");
-			// }
+			for (i=0; i<20; i++)
+			{
+				response.write("<div>" + _buis_name_Array[i] + "</div>");
+			 }
 
 			response.write(data);
 			response.end();
