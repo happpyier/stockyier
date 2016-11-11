@@ -81,12 +81,12 @@ app.get([''], function(request, response)
 			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			});
-			_buis_name_Array = _buis_name.split("|");
-			_buis_snippet_Array = _buis_snippet.split("|");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
+			_buis_name_Array = _buis_name.split("|");
+			_buis_snippet_Array = _buis_snippet.split("|");
 			if (err) 
 			{
 				return console.log(err);
