@@ -35,6 +35,9 @@ var _name = "";
 var businesses = "";
 var pre_buis_snippet;
 var _buis_snippet = "";
+var _patt_buis_snippet = new RegExp("/^.*(\n|\r)$/");
+var pre_patt_buis_snippet_val;
+var _buis_snippet_ArrayVal
 var _snippet = "";
 var location;
 var locationStored = "33611";
@@ -72,7 +75,7 @@ app.get([''], function(request, response)
 				pre_buis_name = JSON.stringify(_name);
 				pre_buis_snippet = JSON.stringify(_snippet);
 				_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-				_buis_snippet = pre_buis_snippet.match(/(?:\r\n|[\r\n]){2}.*(?:\r\n|[\r\n])/g);
+				_buis_snippet = pre_buis_snippet;
 			});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
@@ -93,7 +96,8 @@ app.get([''], function(request, response)
 			}
 			for (i=0; i<20; i++)
 			{
-				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_Array + "</div>");
+				_buis_snippet_ArrayVal = _patt_buis_snippet.exec(_buis_snippet_Array[i]);
+				response.write("<div>" + _buis_name_Array[i] + "..." + _buis_snippet_ArrayVal + "</div>");
 			 }
 
 			response.write(data);
