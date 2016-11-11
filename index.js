@@ -71,7 +71,7 @@ app.get([''], function(request, response)
 			//locationVal = typeof(JSON.stringify(location));
 			for (i=0; i<_count; i++)
 			{
-				response.write("name:" + JSON.stringify(data.businesses[i].name) + "...end");
+				response.write("name:" + JSON.stringify(data.businesses) + "...end");
 			}
 			});
 
