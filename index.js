@@ -29,6 +29,7 @@ var clientUser;
 var pre_clientUser;
 var locationVal;
 var _businesses;
+var _buis_name = "";
 var businesses = "";
 var location;
 var _count;
@@ -70,11 +71,12 @@ app.get([''], function(request, response)
 			_count = businesses.length;
 			for (i=0; i<20; i++)
 			{
-				businesses = businesses + data.businesses[i].name;
+				_name = data.businesses[i].name;
+				response.write("<div>"_name + "</div>");
 			}
-			_businesses = JSON.stringify(businesses);
+			//_buis_name = JSON.stringify(_name) = "|";
 			});
-			response.write(_businesses + "...Count-->" + _count + "...end");
+			//response.write("<div>"_businesses + "</div>");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
