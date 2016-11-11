@@ -33,6 +33,8 @@ var _businesses;
 var _buis_name = "";
 var _name = "";
 var businesses = "";
+var _buis_name_Array;
+var _buis_snippet_Array;
 var pre_buis_snippet;
 var _buis_snippet = "";
 var _snippet = "";
@@ -86,7 +88,7 @@ app.get([''], function(request, response)
 			});
 		});
 			_buis_name_Array = _buis_name.split("|");
-			buis_snippet_Array = _buis_snippet.split("|");
+			//_buis_snippet_Array = _buis_snippet.split("|");
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
 		{
 			if (err) 
