@@ -69,12 +69,12 @@ app.get([''], function(request, response)
 			_count = businesses.length;
 			//businesses = JSON.stringify(Object.keys(prebusinesses));
 			//locationVal = typeof(JSON.stringify(location));
+			_businesses = JSON.stringify(data.businesses);
+			});
 			for (i=0; i<_count; i++)
 			{
-				response.write("name:" + JSON.stringify(businesses) + "...end");
+				response.write("name" + _businesses + "...Count-->" + _count + "...end");
 			}
-			});
-
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
