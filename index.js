@@ -532,6 +532,18 @@ app.get("/twitter/auth/:id", function(req, res) {
 		}
 	});
 });
+app.get("/twitter/auth", function(req, res) {
+	twitter.getRequestToken(function(err, requestToken, requestSecret) {
+		if (err)
+			res.status(500).send(err);
+		else {
+			_requestSecret = requestSecret;
+			_requestToken = requestToken;
+			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			res.end();
+		}
+	});
+});
 
 app.get(['/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
