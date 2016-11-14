@@ -10,11 +10,11 @@
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; height: 40px; text-align: center; border:1px ridge gray; }
 			#mainContent { text-align: left; }
 			#topContent { text-align: center; }
-			#yelp_results { color: white;  width: 1000px; font-size:12px; vertical-align: text-top; }
+			#yelp_results { color: white; width: 1000px; font-size:12px; }
 			#yelp_results img { vertical-align: top; width: 100px; margin-bottom: 10px; }
 			.bigHeader { font-size: 44px;}
 			.bottom { color:black; margin-left: 15%; margin-right: 15%; }
-			.block { display: inline-block; width: 800;}
+			.block { display: inline-block; max-width: 800;}
 			.bgcolor { background-color: #E8E8E8; }
 			.center1 { margin-left: 25%; margin-right: 25%; margin-top: 50px;}
 			.center2 { margin-left: 15%; margin-right: 15%; margin-top: 50px;}
@@ -41,9 +41,9 @@
 			{
 				var searchBarVal = document.getElementById("searchBar").value;
 				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
-				document.getElementById('yelp_results').innerHTML = "";
 				document.getElementById('yelp_results').src = URL;
-				document.getElementById('yelp_results').style.height = "300%";
+				document.getElementById('yelp_results').style.height = "1600px";
+				document.getElementById('yelp_results').src = URL;
 			}
 
 		</script>
