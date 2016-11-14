@@ -101,6 +101,7 @@ app.get(['/iframe/:id'], function(request, response)
 {
 	// if (_screen_name.length > 0)
 		var tempLocation = request.params.id;
+		alert(tempLocation);
 		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20" }).then(function (data) {
 			for (i=0; i<20; i++)
 			{
