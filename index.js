@@ -72,21 +72,19 @@ app.get([''], function(request, response)
 	{
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
-			if (err) 
-			{
-				return console.log(err);
-			}
 			if (_searchBarVal.length > 0)
 			{
 				response.write(data+"<div class=hidden id='searchValueInput'>" + _searchBarVal + "</div>");
 				_searchBarVal = "";
+				response.end();
 			}
 			else
 			{
 				response.write(data+"<div class=hidden id='searchValueInput'></div>");
+				response.end();
 			}
 		});
-		response.end();
+		
 	}
 	else
 	{
