@@ -150,7 +150,8 @@ app.get('/verifyTwit', function(request, response)
 	{
 		if (error) 
 		{
-			console.log(error);
+			response.write(error);
+			response.end();
 		} 
 		else 
 		{
