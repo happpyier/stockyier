@@ -491,7 +491,7 @@ app.get('/windowClose', function(request, response)
 
     }
 	});
-	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
+	response.redirect("https://yelpier.herokuapp.com/verifyTwit");
 });
 app.get('/verifyTwit', function(request, response)
 {
