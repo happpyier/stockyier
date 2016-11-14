@@ -539,7 +539,6 @@ app.get("/twitter/auth/", function(req, res) {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
-			res.end();
 		}
 	});
 });
@@ -547,7 +546,6 @@ app.get("/twitter/auth/", function(req, res) {
 app.get(['/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
 	res.redirect("https://yelpier.herokuapp.com/");
-	res.end();
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
