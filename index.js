@@ -124,7 +124,7 @@ app.get(['/iframe/:id'], function(request, response)
 			_buis_image_url_Array = _buis_image_url.split("|");
 			for (i=0; i<20; i++)
 			{
-				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <div class='block' style='display: inline-block;'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</div> </div>");
+				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <div class='block' style='display: inline-block; width:800px; vertical-align:top;'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</div> </div>");
 			 }
 			response.write(data);
 			response.end();
