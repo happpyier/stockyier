@@ -194,5 +194,6 @@ app.get(['/twitter/SignOut'], function(req, res) {
 	res.redirect("https://yelpier.herokuapp.com/");
 });
 app.listen(app.get('port'), function() {
+//
   console.log('Node app is running on port', app.get('port')); 
 });
