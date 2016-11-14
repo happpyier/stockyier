@@ -21,7 +21,7 @@ var _requestSecret;
 var _requestToken;
 var _accessToken;
 var _accessTokenSecret;
-var _screen_name = "test";
+var _screen_name = "";
 var _clientIP;
 var _clientUser;
 var clientUser;
@@ -65,7 +65,7 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
-		yelp.search({ terms: "restaurant", location: locationStored, limit : "20"}).then(function (data) {
+		yelp.search({ terms: "bars", location: locationStored, limit : "20"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
