@@ -506,16 +506,10 @@ app.get('/verifyTwit', function(request, response)
 		else 
 		{
 			_screen_name = data["name"];
+			response.redirect("https://yelpier.herokuapp.com");
 		}
 	});
-	fs.readFile('reloadPage.html', 'utf8', function (err,data) 
-	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});
+	
 });
 
 app.get("/twitter/auth/:id", function(req, res) {
