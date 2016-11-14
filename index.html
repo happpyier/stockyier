@@ -43,10 +43,18 @@
 				var URL = "https://happpypr.herokuapp.com/"+searchBarVal;
 				window.open(URL,"_self");
 			}
+			function startup()
+			{
+				var oldSearchBarVal = document.getElementById("searchValueInput").value;
+				if (oldSearchBarVal.length > 0)
+				{	
+					document.getElementById("searchBar").value = oldSearchBarVal;
+				}
+			}
 		</script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> </link>
 	</head>
-	<body>
+	<body onload="startup();">
 		<div id="topContent">
 			<div class='center1'>
 				<div class='bigHeader'>
@@ -70,17 +78,4 @@
 			</div>
 			<div class="center3">
 				<div id="yelp_results">
-				</div>
-			</div>
-		</div>
-		<div id="bottomContent">
-			<div class="center1">
-				<div>
-					Node JS | @yelpier | GitHub
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
-				
-					
+
