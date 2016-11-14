@@ -164,6 +164,7 @@ app.get(['/:id'], function(request, response)
 		});
 		fs.readFile('index2.html', 'utf8', function (err,data) 
 		{
+			//MMMMM;
 			_buis_name_Array = _buis_name.split("|");
 			_buis_snippet_Array = _buis_snippet.split("|");
 			_buis_image_url_Array = _buis_image_url.split("|");
