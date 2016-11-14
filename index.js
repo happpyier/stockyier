@@ -65,7 +65,7 @@ app.get([''], function(request, response)
 {
 	if (_screen_name.length > 0)
 	{
-		// yelp.search({ terms: "bars", location: locationStored, limit : "20"}).then(function (data) {
+		// yelp.search({ terms: "bars", location: locationStored, limit : "20" sort: "1"}).then(function (data) {
 			// for (i=0; i<20; i++)
 			// {
 				// _name = _name + data.businesses[i].name + "|";
@@ -124,7 +124,7 @@ app.get(['/:id'], function(request, response)
 	if (_screen_name.length > 0)
 	{
 		locationStored = request.params.id;
-		yelp.search({ terms: "bars", location: locationStored, limit : "20"}).then(function (data) {
+		yelp.search({ terms: "bars", location: locationStored, limit : "20", sort: "1"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
@@ -168,7 +168,7 @@ app.get(['/:id'], function(request, response)
 	else
 	{
 		var tempLocation = request.params.id;
-		yelp.search({ terms: "bars", location: tempLocation, limit : "20"}).then(function (data) {
+		yelp.search({ terms: "bars", location: tempLocation, limit : "20" sort: "1"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
