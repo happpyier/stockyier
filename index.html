@@ -42,21 +42,14 @@
 				var searchBarVal = document.getElementById("searchBar").value;
 				alert (searchBarVal);
 				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
-				window.open(URL, "yelp_results");
+				document.getElementById('yelp_results').innerHTML = "";
+				document.getElementById('yelp_results').src = URL;
 				document.getElementById('yelp_results').style.height = "300%";
-			}
-			function startup()
-			{
-				var oldSearchBarVal = document.getElementById("searchValueInput").innerHTML;
-				if (oldSearchBarVal.length > 0)
-				{	
-					document.getElementById("searchBar").value = oldSearchBarVal;
-				}
 			}
 		</script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> </link>
 	</head>
-	<body onload="startup();">
+	<body>
 		<div id="topContent">
 			<div class='center1'>
 				<div class='bigHeader'>
