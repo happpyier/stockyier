@@ -146,8 +146,8 @@ app.get('/verifyTwit', function(request, response)
 {
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	response.write(accessToken + "..." + accessTokenSecret);
-	response.end();
+	//response.write(accessToken + "..." + accessTokenSecret);
+	//response.end();
 	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
 	{
 		if (error) 
@@ -158,9 +158,10 @@ app.get('/verifyTwit', function(request, response)
 		else 
 		{
 			_screen_name = data["name"];
-			response.redirect("https://yelpier.herokuapp.com");
+			
 		}
 	});
+	response.redirect("https://yelpier.herokuapp.com");
 	
 });
 
@@ -189,7 +190,9 @@ app.get("/twitter/auth/", function(req, res) {
 			_requestToken = requestToken;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
+		
 	});
+	
 });
 
 app.get(['/twitter/SignOut'], function(req, res) {
