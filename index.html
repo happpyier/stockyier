@@ -40,6 +40,7 @@
 			function loadYelp()
 			{
 				var searchBarVal = document.getElementById("searchBar").value;
+				alert (searchBarVal);
 				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
 				document.getElementById('yelp_results').innerHTML = "";
 				document.getElementById('yelp_results').src = URL;
