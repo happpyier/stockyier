@@ -99,7 +99,7 @@ app.get([''], function(request, response)
 			}
 			for (i=0; i<20; i++)
 			{
-				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img>" + _buis_name_Array[i] + "<span>" + _buis_snippet_Array[i] + "</span> </div>");
+				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'>" + _buis_name_Array[i] + "" + _buis_snippet_Array[i] + "</img> </div>");
 			 }
 
 			response.write(data);
