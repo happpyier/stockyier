@@ -98,45 +98,45 @@ app.get([''], function(request, response)
 		});
 	}
 });
-app.get(['/:id'], function(request, response) 
+app.get(['iframe/:id'], function(request, response) 
 {
-	if (_screen_name.length > 0)
-	{
-		locationStored = request.params.id;
-		yelp.search({ terms: "bars", location: locationStored, limit : "20"}).then(function (data) {
-			for (i=0; i<20; i++)
-			{
-				_name = _name + data.businesses[i].name + "|";
-				_snippet = _snippet + data.businesses[i].snippet_text + "|";
-				_image_url = _image_url + data.businesses[i].image_url + "|";				
-			}
-			pre_buis_name = JSON.stringify(_name);
-			pre_buis_snippet = JSON.stringify(_snippet);
-			pre_buis_image_url = JSON.stringify(_image_url);
-			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
-			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
-		});
-		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
-		{
-			response.write(data+"<div class=hidden id='searchValueInput'></div>");
-		});
+	// if (_screen_name.length > 0)
+	// {
+		// locationStored = request.params.id;
+		// yelp.search({ terms: "bars", location: locationStored, limit : "20"}).then(function (data) {
+			// for (i=0; i<20; i++)
+			// {
+				// _name = _name + data.businesses[i].name + "|";
+				// _snippet = _snippet + data.businesses[i].snippet_text + "|";
+				// _image_url = _image_url + data.businesses[i].image_url + "|";				
+			// }
+			// pre_buis_name = JSON.stringify(_name);
+			// pre_buis_snippet = JSON.stringify(_snippet);
+			// pre_buis_image_url = JSON.stringify(_image_url);
+			// _buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
+			// _buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
+			// _buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
+		// });
+		// fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
+		// {
+			// response.write(data+"<div class=hidden id='searchValueInput'></div>");
+		// });
 
-		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
-		{
-			_buis_name_Array = _buis_name.split("|");
-			_buis_snippet_Array = _buis_snippet.split("|");
-			_buis_image_url_Array = _buis_image_url.split("|");
-			for (i=0; i<20; i++)
-			{
-				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <span class='block'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</span> </div>");
-			 }
-			response.write(data);
-			response.end();
-		});
-	}
-	else
-	{
+		// fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
+		// {
+			// _buis_name_Array = _buis_name.split("|");
+			// _buis_snippet_Array = _buis_snippet.split("|");
+			// _buis_image_url_Array = _buis_image_url.split("|");
+			// for (i=0; i<20; i++)
+			// {
+				// response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <span class='block'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</span> </div>");
+			 // }
+			// response.write(data);
+			// response.end();
+		// });
+	// }
+	//else
+	//{
 		tempLocation = request.params.id;
 		yelp.search({ terms: "bars", location: tempLocation, limit: "20"}).then(function (data) {
 			for (i=0; i<20; i++)
@@ -152,26 +152,23 @@ app.get(['/:id'], function(request, response)
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
 		});
+		
 		tempLocation = "";
-		fs.readFile('index.html', 'utf8', function (err,data) 
-		{
-			if (err) 
-			{
-				return console.log(err);
-			}
-			response.write(data+"<div class=hidden id='searchValueInput'></div>");
+		// fs.readFile('index.html', 'utf8', function (err,data) 
+		// {
+			// if (err) 
+			// {
+				// return console.log(err);
+			// }
+			// response.write(data+"<div class=hidden id='searchValueInput'></div>");
 			
-		});
-		fs.readFile('index2.html', 'utf8', function (err,data) 
-		{
+		// });
+		//fs.readFile('index2.html', 'utf8', function (err,data) 
+		//{
 			//MMMMM;
 			_buis_name_Array = _buis_name.split("|");
 			_buis_snippet_Array = _buis_snippet.split("|");
 			_buis_image_url_Array = _buis_image_url.split("|");
-			if (err) 
-			{
-				return console.log(err);
-			}
 			for (i=0; i<20; i++)
 			{
 				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <span class='block'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</span> </div>");
@@ -179,8 +176,8 @@ app.get(['/:id'], function(request, response)
 
 			response.write(data);
 			response.end();
-		});
-	}
+		//});
+	//}
 });
 /*
 app.get(['', '/polls'], function(request, response) {
