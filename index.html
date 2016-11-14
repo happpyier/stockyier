@@ -42,8 +42,7 @@
 				var searchBarVal = document.getElementById("searchBar").value;
 				alert (searchBarVal);
 				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
-				document.getElementById('yelp_results').innerHTML = "";
-				document.getElementById('yelp_results').src = URL;
+				window.open(URL, "yelp_results");
 				document.getElementById('yelp_results').style.height = "300%";
 			}
 			function startup()
