@@ -137,10 +137,10 @@ app.get('/windowClose', function(request, response)
     } else {
         _accessToken = accessToken;
 		_accessTokenSecret = accessTokenSecret;
-
+		setTimeout(function(){ response.redirect("https://yelpier.herokuapp.com/verifyTwit"); }, 1000);
     }
 	});
-	setTimeout(function(){ response.redirect("https://yelpier.herokuapp.com/verifyTwit"); }, 1000);
+	
 });
 app.get('/verifyTwit', function(request, response)
 {
