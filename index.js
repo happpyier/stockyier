@@ -527,15 +527,16 @@ app.get("/twitter/auth/:id", function(req, res) {
 		else {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
-			
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			res.end();
 		}
 	});
 });
 
 app.get(['/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
-	res.redirect("https://happpypr.herokuapp.com");
+	res.redirect("https://yelpier.herokuapp.com/");
+	res.end();
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
