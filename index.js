@@ -101,7 +101,15 @@ app.get(['/iframe/:id'], function(request, response)
 {
 	// if (_screen_name.length > 0)
 		var tempLocation = request.params.id;
-		response.write(tempLocation);
+		var yelp = yelp.createClient({
+			oauth: 
+			{
+				"consumer_key": "7dAg-Gi0XU4GQK1pl-YSNw",
+				"consumer_secret": "HOg3M2ussnUbXMFY2Q3mBsrdrmo",
+				"token": "WPM0LWSJtD0y3C6kqYDFpnjIYSVB--7Z",
+				"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
+			}
+		});
 		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20" }).then(function (data) {
 			for (i=0; i<20; i++)
 			{
