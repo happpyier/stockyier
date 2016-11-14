@@ -493,6 +493,7 @@ app.get('/windowClose', function(request, response)
 	});
 	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
 });
+*/
 app.get('/verifyTwit', function(request, response)
 {
 	accessToken = _accessToken;
@@ -517,18 +518,7 @@ app.get('/verifyTwit', function(request, response)
 		response.end(data);
 	});
 });
-app.get('/info', function(request, response)
-{
-	fs.readFile('info.html', 'utf8', function (err,data) 
-	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});	
-});
-*/
+
 app.get("/twitter/auth/:id", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
 		_searchBarVal = request.params.id;
