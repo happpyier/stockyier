@@ -165,7 +165,9 @@ app.get("/twitter/auth/:id", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
 		_searchBarVal = request.params.id;
 		if (err)
+		{
 			res.status(500).send(err);
+		}
 		else {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
