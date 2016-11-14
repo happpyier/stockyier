@@ -44,6 +44,7 @@ var	_buis_snippet_Array;
 var	_buis_image_url_Array;
 var location;
 var locationStored = "";
+var tempLocation = "";
 var _testData;
 var _count;
 var i;
@@ -131,7 +132,7 @@ app.get(['/:id'], function(request, response)
 	}
 	else
 	{
-		var tempLocation = request.params.id;
+		tempLocation = request.params.id;
 		yelp.search({ terms: "bars", location: tempLocation, limit: "20"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
@@ -146,6 +147,7 @@ app.get(['/:id'], function(request, response)
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
 		});
+		tempLocation = "";
 		fs.readFile('index.html', 'utf8', function (err,data) 
 		{
 			if (err) 
