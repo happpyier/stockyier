@@ -138,7 +138,7 @@ app.get(['/iframe/:id'], function(request, response)
 	//else
 	//{
 		tempLocation = request.params.id;
-		yelp.search({ terms: "bars", location: tempLocation, limit: "20"}).then(function (data) {
+		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
 				_name = _name + data.businesses[i].name + "|";
