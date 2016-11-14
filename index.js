@@ -146,18 +146,21 @@ app.get('/verifyTwit', function(request, response)
 {
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
-	{
-		if (error) 
+	setTimeout(function()
+	{ 
+		twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
 		{
-			console.log(error);
-		} 
-		else 
-		{
-			_screen_name = data["name"];
-			response.redirect("https://yelpier.herokuapp.com");
-		}
-	});
+			if (error) 
+			{
+				console.log(error);
+			} 
+			else 
+			{
+				_screen_name = data["name"];
+				response.redirect("https://yelpier.herokuapp.com");
+			}
+		});
+	}, 1000);
 	
 });
 
