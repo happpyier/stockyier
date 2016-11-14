@@ -167,7 +167,7 @@ app.get('/verifyTwit', function(request, response)
 
 app.get("/twitter/auth/:id", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
-		_searchBarVal = request.params.id;
+		_searchBarVal = req.params.id;
 		if (err)
 		{
 			res.status(500).send(err);
