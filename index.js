@@ -44,7 +44,6 @@ var	_buis_snippet_Array;
 var	_buis_image_url_Array;
 var location;
 var locationStored = "";
-var tempLocation = "";
 var _testData;
 var _count;
 var i;
@@ -101,7 +100,7 @@ app.get([''], function(request, response)
 app.get(['/iframe/:id'], function(request, response) 
 {
 	// if (_screen_name.length > 0)
-		tempLocation = request.params.id;
+		var tempLocation = request.params.id;
 		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20"}).then(function (data) {
 			for (i=0; i<20; i++)
 			{
