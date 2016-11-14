@@ -52,7 +52,7 @@ var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'n8O7J3KvwZdCvP0i83yv9k3Aq',
 	consumerSecret: '4TSijldDtbSl71xp24VZxXZYUdlGAQAxLEqeEG0idD7Qfjwcw8',
-	callback: 'https://yelpier.herokuapp.com'
+	callback: 'https://yelpier.herokuapp.com/'
 });
 var yelp = yelp.createClient({
 	oauth: {
@@ -63,7 +63,6 @@ var yelp = yelp.createClient({
 	}
 });
 app.set('port', (process.env.PORT || 5000));
-app.use(cookieParser());
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) 
 {
@@ -532,7 +531,7 @@ app.get("/twitter/auth/:id", function(req, res) {
 		}
 	});
 });
-app.get("/twitter/auth", function(req, res) {
+app.get("/twitter/auth/", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
 		if (err)
 			res.status(500).send(err);
