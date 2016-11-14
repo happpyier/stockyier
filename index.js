@@ -88,6 +88,11 @@ app.get([''], function(request, response)
 	{
 		fs.readFile('index.html', 'utf8', function (err,data) 
 		{
+			response.write(data);
+
+		});
+		fs.readFile('index.html2', 'utf8', function (err,data) 
+		{
 			response.write(data+"<div class=hidden id='searchValueInput'></div>");
 			response.end();
 		});
