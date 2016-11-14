@@ -44,6 +44,13 @@
 				document.getElementById('yelp_results').src = URL;
 				document.getElementById('yelp_results').style.height = "1600px";
 			}
+			function loadTwitter()
+			{
+				window.location = "https://happpypr.herokuapp.com/twitter/auth/"+searchBarVal;
+				var name = "AuthWindow";
+				var specs = "height=500,width=500";
+				window.open(URL,name,specs);
+			}
 		</script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> </link>
 	</head>
@@ -68,6 +75,7 @@
 			<div class="center2">
 				<input class="searchBar" id="searchBar" name="searchBar" type="text" placeholder="Where you at?"> </input>
 				<button class="searchBarGo" id="searchBarGo" name="searchBarGo" onclick="loadYelp();"> Go </button>
+				<button class='endDiv' onclick="loadTwitter();">Sign in with Twitter </button>
 			</div>
 			<div class="center3">
 				<iframe id="yelp_results">

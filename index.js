@@ -47,11 +47,12 @@ var locationStored = "";
 var _testData;
 var _count;
 var i;
+var _searchBarVal = "";
 var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-	callback: 'https://happpypr.herokuapp.com/windowClose'
+	callback: 'https://yelpier.herokuapp.com'
 });
 var yelp = yelp.createClient({
 	oauth: {
@@ -74,26 +75,24 @@ app.get([''], function(request, response)
 			{
 				return console.log(err);
 			}
-			response.write(data+"<div class=hidden id='searchValueInput'></div>");
+			if (_searchBarVal.length > 0)
+			{
+				response.write(data+"<div class=hidden id='searchValueInput'>" + _searchBarVal + "</div>");
+				_searchBarVal = "";
+			}
+			else
+			{
+				response.write(data+"<div class=hidden id='searchValueInput'></div>");
+			}
 		});
 
-		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
-		{
-			response.write(data);
-			response.end();
-		});
 	}
 	else
 	{
 		fs.readFile('index.html', 'utf8', function (err,data) 
 		{
-			response.write(data);
+			response.write(data""<div class=hidden id='searchValueInput'></div>");
 
-		});
-		fs.readFile('index2.html', 'utf8', function (err,data) 
-		{
-			response.write(data+"<div class=hidden id='searchValueInput'></div>");
-			response.end();
 		});
 	}
 });
@@ -529,19 +528,22 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.get("/twitter/auth", function(req, res) {
+*/
+app.get("/twitter/auth/:id", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
+		_searchBarVal = request.params.id;
 		if (err)
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
+			
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
 });
-*/
-app.get(['/twitter/SignOut', '/polls/twitter/SignOut', 'newpoll/twitter/SignOut'], function(req, res) {
+
+app.get(['/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
 	res.redirect("https://happpypr.herokuapp.com");
 });
