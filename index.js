@@ -140,7 +140,7 @@ app.get('/windowClose', function(request, response)
 
     }
 	});
-	response.redirect("https://yelpier.herokuapp.com/verifyTwit");
+	setTimeout(function(){ response.redirect("https://yelpier.herokuapp.com/verifyTwit"); }, 1000);
 });
 app.get('/verifyTwit', function(request, response)
 {
