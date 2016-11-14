@@ -50,8 +50,8 @@ var i;
 var _searchBarVal = "";
 var Almost_clientUser;
 var twitter = new Twitter({
-	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
-	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
+	consumerKey: 'n8O7J3KvwZdCvP0i83yv9k3Aq',
+	consumerSecret: '4TSijldDtbSl71xp24VZxXZYUdlGAQAxLEqeEG0idD7Qfjwcw8',
 	callback: 'https://yelpier.herokuapp.com'
 });
 var yelp = yelp.createClient({
@@ -494,30 +494,30 @@ app.get('/windowClose', function(request, response)
 	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
 });
 */
-app.get('/verifyTwit', function(request, response)
-{
-	accessToken = _accessToken;
-	accessTokenSecret = _accessTokenSecret;
-	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
-	{
-		if (error) 
-		{
-			console.log(error);
-		} 
-		else 
-		{
-			_screen_name = data["name"];
-		}
-	});
-	fs.readFile('reloadPage.html', 'utf8', function (err,data) 
-	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});
-});
+// app.get('/verifyTwit', function(request, response)
+// {
+	// accessToken = _accessToken;
+	// accessTokenSecret = _accessTokenSecret;
+	// twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
+	// {
+		// if (error) 
+		// {
+			// console.log(error);
+		// } 
+		// else 
+		// {
+			// _screen_name = data["name"];
+		// }
+	// });
+	// fs.readFile('reloadPage.html', 'utf8', function (err,data) 
+	// {
+		// if (err) 
+		// {
+			// return console.log(err);
+		// }
+		// response.end(data);
+	// });
+// });
 
 app.get("/twitter/auth/:id", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
