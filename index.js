@@ -146,8 +146,6 @@ app.get('/verifyTwit', function(request, response)
 {
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	response.write(  accessToken + "..." + accessTokenSecret);
-	response.end();
 	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
 	{
 		if (error) 
