@@ -39,6 +39,9 @@ var _snippet = "";
 var pre_buis_image_url;
 var _buis_image_url = "";
 var _image_url = "";
+var	_buis_name_Array;
+var	_buis_snippet_Array;
+var	_buis_image_url_Array;
 var location;
 var locationStored = "";
 var _testData;
@@ -110,7 +113,7 @@ app.get(['/:id'], function(request, response)
 		});
 		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) 
 		{
-			response.write(data+"<div class=hidden id='searchValueInput'>"+locationStored+"</div>");
+			response.write(data+"<div class=hidden id='searchValueInput'></div>");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
@@ -122,7 +125,6 @@ app.get(['/:id'], function(request, response)
 			{
 				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <span class='block'>" + _buis_name_Array[i] + "<br/><i>\"" + _buis_snippet_Array[i] + "</i>\"</span> </div>");
 			 }
-
 			response.write(data);
 			response.end();
 		});
@@ -150,7 +152,7 @@ app.get(['/:id'], function(request, response)
 			{
 				return console.log(err);
 			}
-			response.write(data+"<div class=hidden id='searchValueInput'>"+tempLocation+"</div>");
+			response.write(data+"<div class=hidden id='searchValueInput'></div>");
 			
 		});
 		fs.readFile('index2.html', 'utf8', function (err,data) 
