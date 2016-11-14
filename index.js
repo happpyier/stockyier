@@ -98,7 +98,7 @@ app.get([''], function(request, response)
 		});
 	}
 });
-app.get(['iframe/:id'], function(request, response) 
+app.get(['/iframe/:id'], function(request, response) 
 {
 	// if (_screen_name.length > 0)
 	// {
