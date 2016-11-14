@@ -62,7 +62,9 @@ var yelp = yelp.createClient({
 		"token_secret": "GRHNx-coBSsG_wFboFlw1mhX6KU"
 	}
 });
+var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
+app.use(cookieParser());
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) 
 {
