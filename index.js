@@ -85,7 +85,7 @@ app.get([''], function(request, response)
 			{
 				return console.log(err);
 			}
-			response.write(data);
+			response.write(data"<div class=hidden id='searchValueInput'></div>");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
@@ -144,7 +144,7 @@ app.get(['/:id'], function(request, response)
 			{
 				return console.log(err);
 			}
-			response.write(data);
+			response.write(data+"<div class=hidden id='searchValueInput'>"+locationStored+"</div>");
 		});
 
 		fs.readFile('indexSignedIn2.html', 'utf8', function (err,data) 
