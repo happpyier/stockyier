@@ -137,7 +137,7 @@ app.get('/windowClose', function(request, response)
     } else {
         _accessToken = accessToken;
 		_accessTokenSecret = accessTokenSecret;
-		setTimeout(function(){ response.redirect("https://yelpier.herokuapp.com/verifyTwit"); }, 1000);
+		response.redirect("https://yelpier.herokuapp.com/verifyTwit");
     }
 	});
 	
@@ -146,21 +146,18 @@ app.get('/verifyTwit', function(request, response)
 {
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	setTimeout(function()
-	{ 
-		twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
+	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
+	{
+		if (error) 
 		{
-			if (error) 
-			{
-				console.log(error);
-			} 
-			else 
-			{
-				_screen_name = data["name"];
-				response.redirect("https://yelpier.herokuapp.com");
-			}
-		});
-	}, 1000);
+			console.log(error);
+		} 
+		else 
+		{
+			_screen_name = data["name"];
+			response.redirect("https://yelpier.herokuapp.com");
+		}
+	});
 	
 });
 
