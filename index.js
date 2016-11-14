@@ -115,7 +115,7 @@ app.get(['/iframe/:id'], function(request, response)
 			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
 			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
 		});
-		tempLocation = "";
+		//tempLocation = "";
 			_buis_name_Array = _buis_name.split("|");
 			_buis_snippet_Array = _buis_snippet.split("|");
 			_buis_image_url_Array = _buis_image_url.split("|");
