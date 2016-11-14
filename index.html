@@ -42,6 +42,7 @@
 				var searchBarVal = document.getElementById("searchBar").value
 				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
 				document.getElementById('yelp_results').src = URL;
+				document.getElementById('yelp_results').css = "height: 100%";
 				
 			}
 			function startup()
