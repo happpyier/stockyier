@@ -176,7 +176,9 @@ app.get("/twitter/auth/:id", function(req, res) {
 app.get("/twitter/auth/", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
 		if (err)
+		{
 			res.status(500).send(err);
+		}
 		else {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
