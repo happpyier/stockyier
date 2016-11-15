@@ -97,10 +97,6 @@ app.get([''], function(request, response)
 });
 app.get(['/iframe/:id'], function(request, response) 
 {
-		fs.readFile('indexShortened.html', 'utf8', function (err,data) 
-		{
-			response.write(data);
-		});
 		var tempLocation = request.params.id;
 		_name = "";
 		_snippet = "";
@@ -126,7 +122,7 @@ app.get(['/iframe/:id'], function(request, response)
 			{
 				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <div class='block' style='display: inline-block; width:800px; vertical-align:top;'>" + _buis_name_Array[i] + " <button onclick='goingToTheBar();'> 0 Going </button><br/><i>\"" + _buis_snippet_Array[i] + "</i>\" </div> </div>");
 			 }
-			response.write(data);
+			response.write(data+'<script> function goingToTheBar() { alert("its workings"); } </script>');
 			response.end();
 });
 app.get(['/iframe/'], function(request, response) 
