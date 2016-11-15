@@ -125,6 +125,10 @@ app.get(['/iframe/:id'], function(request, response)
 			response.write(data);
 			response.end();
 });
+app.get(['/iframe/'], function(request, response) 
+{
+			response.end();
+});
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
