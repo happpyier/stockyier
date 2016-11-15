@@ -120,7 +120,7 @@ app.get(['/iframe/:id'], function(request, response)
 			_buis_image_url_Array = _buis_image_url.split("|");
 			if (_screen_name.length > 0)
 			{
-				response.write('<script> function goingToTheBar(divValue) { if(divValue.innerHTML == "0") { divValue.innerHTML = "1"; } else { divValue.innerHTML = "0"; } } </script>');				
+				response.write('<script> function goingToTheBar(divValue) { if(divValue.innerHTML == "0 Going") { divValue.innerHTML = "1 Going"; } else { divValue.innerHTML = "0 Going"; } } </script>');				
 			}
 			else
 			{
