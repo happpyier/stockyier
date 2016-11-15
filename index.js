@@ -99,8 +99,7 @@ app.get(['/iframe/:id'], function(request, response)
 {
 		fs.readFile('indexShortened.html', 'utf8', function (err,data) 
 		{
-			response.write(data+"<div class=hidden id='searchValueInput'></div>");
-			response.end();
+			response.write(data);
 		});
 		var tempLocation = request.params.id;
 		_name = "";
