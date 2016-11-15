@@ -118,9 +118,10 @@ app.get(['/iframe/:id'], function(request, response)
 			_buis_name_Array = _buis_name.split("|");
 			_buis_snippet_Array = _buis_snippet.split("|");
 			_buis_image_url_Array = _buis_image_url.split("|");
+			response.write('<script> function goingToTheBar() {	alert("its workings"); } </script>');
 			for (i=0; i<20; i++)
 			{
-				response.write("<div> <script> re </script> <img src='" + _buis_image_url_Array[i] + "'> </img> <div class='block' style='display: inline-block; width:800px; vertical-align:top;'>" + _buis_name_Array[i] + " <button onclick='goingToTheBar(this);'> 0 Going </button><br/><i>\"" + _buis_snippet_Array[i] + "</i>\" </div> </div>");
+				response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> <div class='block' style='display: inline-block; width:800px; vertical-align:top;'>" + _buis_name_Array[i] + " <button onclick='goingToTheBar();'> 0 Going </button><br/><i>\"" + _buis_snippet_Array[i] + "</i>\" </div> </div>");
 			 }
 			response.write(data);
 			response.end();
