@@ -9,7 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
 var _screen_name;
-app.get(['/'], function(request, response) {
+app.get([''], function(request, response) {
 	_screen_name = "";
 	resposne.write("Home Page");
 	response.end();
