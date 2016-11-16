@@ -24,26 +24,27 @@ var postSqlVar = "SELECT * FROM stock_table";
 
 		client.query(postSqlVar, function(err, result) 
 		{
-		  if (err)
-		   { resultsidSQL = ("Error " + err); }
-		  else
-		   { 
+			if (err)
+			{ resultsidSQL = ("Error " + err); }
+			else
+		    { 
 				alertVar = result.rows;
 				alertVar.forEach(function(value)
 				{
 					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
 
 				});
-				fs.readFile('index2.html', 'utf8', function (err,data) {
-					if (err) 
-					{
-						return console.log(err);
-					}
+
 					response.write(data);
 					response.end();
 				});				
-		   }
-		   done();
+		    }
+		    done();
+			fs.readFile('index2.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
 		});
 
 	});
