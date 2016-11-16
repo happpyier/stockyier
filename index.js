@@ -14,15 +14,15 @@ app.get([''], function(request, response) {
 var postSqlVar = "SELECT * FROM stock_table";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		client.query(postSqlVar, function(err, result) 
-		{
-			fs.readFile('index.html', 'utf8', function (err,data) {
+		fs.readFile('index.html', 'utf8', function (err,data) {
 			if (err) 
 			{
 				return console.log(err);
 			}
 			response.write(data);
 		});
+		client.query(postSqlVar, function(err, result) 
+		{
 		  if (err)
 		   { resultsidSQL = ("Error " + err); }
 		  else
@@ -35,8 +35,7 @@ var postSqlVar = "SELECT * FROM stock_table";
 				});		
 		   }
 		   done();
-		});
-		fs.readFile('index2.html', 'utf8', function (err,data) {
+		   	fs.readFile('index2.html', 'utf8', function (err,data) {
 			if (err) 
 			{
 				return console.log(err);
@@ -44,6 +43,8 @@ var postSqlVar = "SELECT * FROM stock_table";
 			response.write(data);
 			response.end();
 		});
+		});
+
 	
 	});
 
