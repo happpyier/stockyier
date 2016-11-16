@@ -31,9 +31,7 @@ var postSqlVar = "SELECT * FROM stock_table";
 		   }
 		   done();
 		});
-
-	});
-	fs.readFile('index.html', 'utf8', function (err,data) {
+		fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
 		{
 			return console.log(err);
@@ -41,6 +39,8 @@ var postSqlVar = "SELECT * FROM stock_table";
 		response.write(data);
 		response.end();
 	});
+	});
+
 	
 });
 app.listen(app.get('port'), function() {
