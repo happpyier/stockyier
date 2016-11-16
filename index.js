@@ -9,8 +9,13 @@ var _screen_name;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
-	_screen_name = "";
-	response.write("Home Page");
+	fs.readFile('index.html', 'utf8', function (err,data) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.write(data);
+	});
 	response.end();
 });
 app.listen(app.get('port'), function() {
