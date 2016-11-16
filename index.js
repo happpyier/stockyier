@@ -31,11 +31,8 @@ var postSqlVar = "SELECT * FROM stock_table";
 				ticker = "";
 				alertVar.forEach(function(value)
 				{
-					ticker = value["ticker"];
-					response.write( "<div class='ticker'><boldHeader>" + ticker + "</bolderboldHeader></div>");
-				});
-				ticker = ticker.substring(0, ticker.length - 1);
-				
+					response.write( "<div class='ticker'><boldHeader>" + value["ticker"] + "</bolderboldHeader></div>");
+				});		
 		   }
 		   done();
 		});
