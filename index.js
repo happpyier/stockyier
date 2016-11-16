@@ -11,7 +11,7 @@ var alertVar;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
-var postSqlVar = "SELECT * FROM stock_table";
+	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
 		{
@@ -19,37 +19,33 @@ var postSqlVar = "SELECT * FROM stock_table";
 		}
 		response.write(data);
 	});
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-
-		client.query(postSqlVar, function(err, result) 
-		{
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query(queryForSQL, function(err, result) {
 			if (err)
-			{ resultsidSQL = ("Error " + err); }
+		    {
+				resultsidSQL = ("Error term" + err);
+			}
 			else
-		    { 
-				alertVar = result.rows;
-				alertVar.forEach(function(value)
-				{
+		    {
+				
+				testSQlValue = result.rows;
+				testSQlValue.forEach(function(value){
 					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
-
 				});
-					response.write(data);
-					response.end();
-		    }
-		    done();
+			}
+			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
 				{
 					return console.log(err);
 				}
-			});				
+				response.end(data);
+			});
 		});
-
 	});
-
-	
 });
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
