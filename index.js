@@ -20,7 +20,6 @@ var postSqlVar = "SELECT * FROM stock_table";
 				return console.log(err);
 			}
 			response.write(data);
-			response.end();
 		});
 		client.query(postSqlVar, function(err, result) 
 		{
