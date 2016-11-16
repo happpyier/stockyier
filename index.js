@@ -29,16 +29,14 @@ var postSqlVar = "SELECT * FROM stock_table";
 		  else
 		   { 
 				alertVar = result.rows;
+
 				alertVar.forEach(function(value)
 				{
 					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
 				});		
 		   }
 		   done();
-
-
-		});
-		fs.readFile('index2.html', 'utf8', function (err,data) {
+			fs.readFile('index2.html', 'utf8', function (err,data) {
 			if (err) 
 			{
 				return console.log(err);
@@ -46,6 +44,9 @@ var postSqlVar = "SELECT * FROM stock_table";
 			response.write(data);
 			response.end();
 		});
+
+		});
+
 	});
 
 	
