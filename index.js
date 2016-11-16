@@ -7,9 +7,9 @@ var path = require("path");
 var url = require("url");
 app.use(cookieParser());
 app.set("Content-Type", "text/html");
-app.get(['/twitter/SignOut'], function(req, res) {
+app.get([''], function(request, response) {
 	_screen_name = "";
-	res.redirect("https://yelpier.herokuapp.com/");
+	response.end("Home Page");
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
