@@ -33,11 +33,20 @@ var postSqlVar = "SELECT * FROM stock_table";
 				alertVar.forEach(function(value)
 				{
 					ticker = ticker +  value["ticker"]  + "|";
+					response.write( "<div class='ticker'>" + ticker + "</div>");
 				});
 				ticker = ticker.substring(0, ticker.length - 1);
-				response.write( "<div class='hidden' style='display:none' id= 'ticker_hidden'>" + ticker + "</div> <div> This is a Test </div>");
+				
 		   }
 		   done();
+		});
+		fs.readFile('index2.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+			response.end();
 		});
 	
 	});
