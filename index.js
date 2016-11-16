@@ -27,7 +27,7 @@ var postSqlVar = "SELECT * FROM stock_table";
 					ticker = ticker +  value["ticker"]  + "|";
 				});
 				ticker = ticker.substring(0, ticker.length - 1);
-				response.write( "<div class='hidden' style='display:none' id= 'ticker_hidden'>" + ticker + "</div>");
+				response.write( "<div class='hidden' style='display:none' id= 'ticker_hidden'>" + ticker + "</div> <div> This is a Test </div>");
 		   }
 		   done();
 		});
