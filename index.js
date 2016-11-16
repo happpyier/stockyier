@@ -29,7 +29,6 @@ var postSqlVar = "SELECT * FROM stock_table";
 		  else
 		   { 
 				alertVar = result.rows;
-				ticker = "";
 				alertVar.forEach(function(value)
 				{
 					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
