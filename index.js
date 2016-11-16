@@ -10,7 +10,7 @@ app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
 	_screen_name = "";
-	resposne.write("Home Page");
+	response.write("Home Page");
 	response.end();
 });
 app.listen(app.get('port'), function() {
