@@ -7,6 +7,7 @@
 			#graph_results { width: 100%; height: 400px;  }
 			#mainContent { background-color: darkgray; color: white; margin: 50 250 50 250; height: 800px; }
 			#ticker_results { width: 100%; height: 400px; }
+			.ticker { display: inline-block; width: 50px; height: 50px;}
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
@@ -26,7 +27,7 @@
 				This will be where the graph is!
 			</div>
 			<div id="ticker_results">
-				<div>
+				<div class="ticker">
 					Syncs in realtime across clients
 					<input name="stock_ticker_add_input" id="stock_ticker_add_input"></input>
 					<button onclick="addTicker();">Add</button>
