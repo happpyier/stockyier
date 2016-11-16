@@ -12,6 +12,13 @@ app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
 var postSqlVar = "SELECT * FROM stock_table";
+	fs.readFile('index.html', 'utf8', function (err,data) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.write(data);
+	});
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 
@@ -29,13 +36,7 @@ var postSqlVar = "SELECT * FROM stock_table";
 				});		
 		   }
 		   done();
-		   	fs.readFile('index.html', 'utf8', function (err,data) {
-				if (err) 
-				{
-					return console.log(err);
-				}
-				response.write(data);
-			});
+
 
 		});
 		fs.readFile('index2.html', 'utf8', function (err,data) {
