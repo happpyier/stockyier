@@ -34,17 +34,16 @@ var postSqlVar = "SELECT * FROM stock_table";
 					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
 
 				});
-
 					response.write(data);
 					response.end();
-				});				
 		    }
 		    done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
-			if (err) 
-			{
-				return console.log(err);
-			}
+				if (err) 
+				{
+					return console.log(err);
+				}
+			});				
 		});
 
 	});
