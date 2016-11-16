@@ -38,16 +38,16 @@ var postSqlVar = "SELECT * FROM stock_table";
 		   }
 		   done();
 		});
-
+		fs.readFile('index2.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+			response.end();
+		});
 	});
-	fs.readFile('index2.html', 'utf8', function (err,data) {
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.write(data);
-		response.end();
-	});		
+		
 	
 });
 app.listen(app.get('port'), function() {
