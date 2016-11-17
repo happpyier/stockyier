@@ -30,7 +30,7 @@ app.get([''], function(request, response) {
 					markit.getQuote(ticker, function(err, data) {
 						tickerName = data.Name;
 						graphDataElement.Normalized = "false";
-						// var d = new Date(new Date(0,0,0,0,0,0).setFullYear(new Date().getFullYear()));
+						 var d = new Date(new Date(0,0,0,0,0,0).setFullYear(new Date().getFullYear()));
 						// graphDataElement.StartDate = (d.getFullYear()-1) +"-"+d.getMonth()+"-"+d.getDay()+"00:00:00-00";
 						// graphDataElement.EndDate = d.getFullYear() +"-"+d.getMonth()+"-"+d.getDay()+"00:00:00-00";
 						// graphDataElement.NumberOfDays = 12;
