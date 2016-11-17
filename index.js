@@ -32,13 +32,17 @@ app.get([''], function(request, response) {
 		    {
 				
 				testSQlValue = result.rows;
-				testSQlValue.forEach(function(value){
+				//testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
-					markit.getQuote( "FB", function(err, stock) {
-						//response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
-						response.write(JSON.stringify(stock));
+					markit.getQuote('AAPL', function(err, stock) {
+					// Where stock is an object of stock data 
+					console.log(stock);
 					});
-				});
+					//markit.getQuote( "FB", function(err, stock) {
+						//response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+						//response.write(JSON.stringify(stock));
+					//});
+				//});
 			}
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
