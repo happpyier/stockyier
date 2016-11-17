@@ -1,3 +1,12 @@
+				<script>
+				function loadGraph()
+				{
+					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
+					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart?parameters="+graphData;
+					document.getElementById('graph_results').src = URL;
+				}
+				loadGraph();
+				</script>
 				<div class="ticker">
 					Syncs in realtime across clients
 					<input name="stock_ticker_add_input" id="stock_ticker_add_input"></input>
