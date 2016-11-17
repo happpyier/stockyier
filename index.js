@@ -41,7 +41,7 @@ app.get([''], function(request, response) {
 						graphDataElement.Elements.Symbol = graphDataElementName;
 						graphDataElement.Elements.Type = "price";
 						graphDataElement.Elements.Params = '["c"]';
-						graphDataElement.Elements.push("Symbol:"+graphDataElementName+",Type:\"price\",Params:[\"c\"]");
+						//graphDataElement.Elements.push("Symbol:"+graphDataElementName+",Type:\"price\",Params:[\"c\"]");
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						//graphDataArrayEncoded = encodeURI(pregraphDataArrayEncoded);
 					});
