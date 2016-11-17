@@ -40,8 +40,7 @@ app.get([''], function(request, response) {
 						graphDataElement.Elements = "null";
 						graphDataElement.Name = data.Name;
 						graphDataArray.push(graphDataElement);
-						//graphDataArrayEncoded = JSON.stringify(graphDataArray);
-						graphDataArrayEncoded = response.json(graphDataArray);
+						graphDataArrayEncoded = JSON.stringify(graphDataArray);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
