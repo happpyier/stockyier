@@ -12,6 +12,7 @@
     "ejs": "2.3.3",
     "express": "^4.13.3",
     "googleapis": "^3.1.0",
+    "markit-on-demand": "^1.0.6",
     "node-markitondemand": "^1.0.4",
     "node-twitter-api": "^1.8.0",
     "pg": "4.x",
