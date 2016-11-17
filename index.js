@@ -14,7 +14,7 @@ app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
 app.get([''], function(request, response) {
-	markit.lookup('AAPL', function(err, data) {
+	markit.getStock('AAPL', function(err, data) {
      // Where data is an array of stock symbols 
      tickerName = data.Name;
    });
