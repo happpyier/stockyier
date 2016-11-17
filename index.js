@@ -38,7 +38,7 @@ app.get([''], function(request, response) {
 						graphDataElement.DataPeriod = "Month";
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElement.LabelInterval = 1;
-						graphDataElementName = data.Name;
+						graphDataElementName = ticker;
 						graphDataElement.Elements = [graphDataElementName, "price", "null"];
 						
 						//graphDataArray.push(graphDataElement);
