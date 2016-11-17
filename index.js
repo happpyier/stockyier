@@ -39,8 +39,8 @@ app.get([''], function(request, response) {
 						graphDataElement.LabelInterval = 1;
 						graphDataElement.Elements = "null";
 						graphDataElement.Name = data.Name;
-						graphDataArray.push(graphDataElement);
-						graphDataArrayEncoded = JSON.stringify(graphDataArray);
+						//graphDataArray.push(graphDataElement);
+						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
