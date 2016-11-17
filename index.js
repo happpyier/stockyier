@@ -13,9 +13,9 @@ var alertVar;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
-markit.getQuote('AAPL', function(err, stock) {
+markit.getQuote('AAPL', function(err, data) {
      // Where stock is an object of stock data 
-     tickerName = JSON.stringify(stock);
+     tickerName = JSON.stringify(data.Name);
    });
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
