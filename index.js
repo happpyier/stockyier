@@ -35,7 +35,7 @@ app.get([''], function(request, response) {
 						 graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
 						graphDataElement.LabelPeriod = "Month";
-						graphDataElement.LabelInterval = 1;
+						//graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [];
 						graphDataElement.Elements.push('{"Symbol":"'+graphDataElementName+'","Type":"price","Params":"[c]"}');
