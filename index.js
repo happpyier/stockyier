@@ -38,7 +38,7 @@ app.get([''], function(request, response) {
 						graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [];
-						graphDataElement.Elements.push("Symbol"+:+"FB"+,+"Type"+:+"price"+,+"Params"+:+[+"+c+"+]);
+						graphDataElement.Elements.push("Symbol"+:+"FB"+,+"Type"+:+"price"+,+"Params"+:+[+"c"+]);
 						pregraphDataArrayEncoded = JSON.stringify(graphDataElement);
 						graphDataArrayEncoded = encodeURI(pregraphDataArrayEncoded);
 					});
