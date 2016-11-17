@@ -32,15 +32,13 @@ app.get([''], function(request, response) {
 					markit.getQuote(ticker, function(err, data) {
 						tickerName = data.Name;
 						graphDataElement.Normalized = "false";
-						 var d = new Date(new Date(0,0,0,0,0,0).setFullYear(new Date().getFullYear()));
-						 graphDataElement.StartDate = (d.getFullYear()-1) + "-" + d.getMonth() + "-" + d.getDay() + "00:00:00-00";
-						 graphDataElement.EndDate = d.getFullYear() + "-" + d.getMonth() + "-" +d.getDay() + "00:00:00-00";
-						graphDataElement.NumberOfDays = 12;
-						graphDataElement.DataPeriod = "Month";
+						 graphDataElement.NumberOfDays = 365;
+						graphDataElement.DataPeriod = "Day";
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
-						graphDataElement.Elements = [ graphDataElementName, "price", [] ];
+						graphDataElement.Elements = [];
+						graphDataElement.Elements.push("Symbol":graphDataElementName,"Type":"price","Params":["c"])
 						pregraphDataArrayEncoded = JSON.stringify(graphDataElement);
 						graphDataArrayEncoded = encodeURI(pregraphDataArrayEncoded);
 					});
