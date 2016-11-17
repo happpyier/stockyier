@@ -18,9 +18,7 @@ var graphDataArrayEncoded;
 var graphDataElementName = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-//http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
 app.get([''], function(request, response) {
-
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
@@ -36,7 +34,6 @@ app.get([''], function(request, response) {
 						 graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
 						graphDataElement.LabelPeriod = "Month";
-						//graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [];
 						tempDataArray.Symbol = graphDataElementName;
