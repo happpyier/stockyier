@@ -31,7 +31,7 @@ app.get([''], function(request, response) {
 						tickerName = data.Name;
 						graphDataElement.Normalized = "false";
 						 var d = new Date(new Date(0,0,0,0,0,0).setFullYear(new Date().getFullYear()));
-						// graphDataElement.StartDate = (d.getFullYear()-1) +"-"+d.getMonth()+"-"+d.getDay()+"00:00:00-00";
+						 graphDataElement.StartDate = (d.getFullYear()-1) + "-" + d.getMonth() + "-" + d.getDay() + "00:00:00-00";
 						// graphDataElement.EndDate = d.getFullYear() +"-"+d.getMonth()+"-"+d.getDay()+"00:00:00-00";
 						// graphDataElement.NumberOfDays = 12;
 						// graphDataElement.DataPeriod = "Month";
