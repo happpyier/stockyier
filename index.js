@@ -5,7 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
-// const Markit = require('markit-on-demand');
+var Markit = require('markit-on-demand');
 var _screen_name;
 var ticker;
 var tickerName = "";
