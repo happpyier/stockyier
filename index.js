@@ -53,12 +53,14 @@ app.get([''], function(request, response) {
 				{
 					return console.log(err);
 				}
+				response.write(graphDataArrayEncoded);
 				response.write("<div style='display:none;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 				response.end(data);
 			});
 		});
 	});
 });
+
 
 
 app.listen(app.get('port'), function() {
