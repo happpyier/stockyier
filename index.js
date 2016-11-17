@@ -13,6 +13,7 @@ var alertVar;
 var graphDataElement = {};
 var graphDataArray = [];
 var graphDataArrayEncoded;
+var graphDataElementName = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
@@ -37,8 +38,9 @@ app.get([''], function(request, response) {
 						graphDataElement.DataPeriod = "Month";
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElement.LabelInterval = 1;
-						graphDataElement.Elements = "null";
-						graphDataElement.Name = data.Name;
+						graphDataElementName = data.Name;
+						graphDataElement.Elements = [graphDataElementName, "price", "null"];
+						
 						//graphDataArray.push(graphDataElement);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					});
