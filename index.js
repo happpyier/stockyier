@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 
 markit.getQuote('AAPL', function(err, stock) {
  // Where stock is an object of stock data 
- console.log(stock);
+ //console.log(stock);
 });
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
