@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 
 Markit.getQuote('FB')
     .then(( res ) => {
-        tickerName = typeof(res)
+        tickerName = typeof(res);
     });
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
