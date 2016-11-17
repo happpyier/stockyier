@@ -38,13 +38,13 @@ app.get([''], function(request, response) {
 						//graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [];
-						graphDataElement.Elements.push("{"+"Symbol"+":"+graphDataElementName+","+"Type"+":"+"price"+","+"Params"+":"+"["+"c"+"]"+"}");
+						graphDataElement.Elements.push({"+"Symbol"+":"+graphDataElementName+","+"Type"+":"+"price"+","+"Params"+":"+"["+"c"+"]"+"});
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
 			done();
-			//set iframe with id="graph_results" to http://dev.markitondemand.com/Api/v2/InteractiveChart?parameters=graphDataArrayEncoded A JSON encoded InteractiveChartDataInput object
+			// json?parameters={"Normalized":false,"NumberOfDays":365,"DataPeriod":"Day","Elements":[{"Symbol":"AAPL","Type":"price","Params":["c"// ]}]}
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
 				{
