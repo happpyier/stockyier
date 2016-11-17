@@ -15,7 +15,7 @@ app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
 markit.getQuote('AAPL', function(err, data) {
      // Where stock is an object of stock data 
-     tickerName = JSON.stringify(data.Name);
+     tickerName = typeof(data.Name);
    });
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
