@@ -37,7 +37,7 @@ app.get([''], function(request, response) {
 						graphDataElement.DataPeriod = "Month";
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElement.LabelInterval = 1;
-						// graphDataElement.Elements = [ Symbol: tickerName, Type: "price", Params: "null" ];
+						graphDataElement.Elements = "null";
 						graphDataElement.Name = data.Name;
 						graphDataArray.push(graphDataElement);
 						graphDataArrayEncoded = JSON.stringify(graphDataArray);
