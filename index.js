@@ -7,6 +7,7 @@ var path = require("path");
 var url = require("url");
 var _screen_name;
 var ticker;
+var tickerName = "";
 var alertVar;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
@@ -31,7 +32,7 @@ app.get([''], function(request, response) {
 				
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
-					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
+					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader>" + tickerName + " Prices, Dividends, Splits and Trading Volume </div>");
 				});
 			}
 			done();
