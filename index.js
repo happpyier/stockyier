@@ -39,8 +39,7 @@ app.get([''], function(request, response) {
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [];
 						graphDataElement.Elements.push('{"Symbol":"'+graphDataElementName+'","Type":"price","Params":"[c]"}');
-						pregraphDataArrayEncoded = JSON.stringify(graphDataElement);
-						graphDataArrayEncoded = encodeURI(pregraphDataArrayEncoded);
+						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
