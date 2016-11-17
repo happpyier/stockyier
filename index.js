@@ -33,7 +33,11 @@ app.get([''], function(request, response) {
 				
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
-					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</boldHeader> <br/><br/>" + tickerName + "(" + value["ticker"] + ") Prices, Dividends, Splits and Trading Volume </div>");
+				markit.getQuote(value["ticker"] , function(err, stock) {
+					// Where stock is an object of stock data 
+					console.log(stock);
+					});
+					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</boldHeader> <br/><br/>" + stock.Name + "(" + value["ticker"] + ") Prices, Dividends, Splits and Trading Volume </div>");
 				});
 			}
 			done();
