@@ -31,9 +31,7 @@ app.get([''], function(request, response) {
 				
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
-					app.post(['http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol='+value["ticker"]], function(req, res) {
-						response.write( "<div class='ticker'> <boldHeader>" + res + "</bolderboldHeader> </div>");
-					});
+					response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</bolderboldHeader> </div>");
 				});
 			}
 			done();
