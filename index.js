@@ -5,6 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
+var markit = require('node-markitondemand');
 var _screen_name;
 var ticker;
 var tickerName = "";
