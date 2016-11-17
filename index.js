@@ -38,9 +38,9 @@ app.get([''], function(request, response) {
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElement.LabelInterval = 1;
 						// graphDataElement.Elements = [ Symbol: tickerName, Type: "price", Params: "null" ];
-						// graphDataElement.Name = data.Name;
-						// graphDataArray.push(graphDataElement);
-						// graphDataArrayEncoded = JSON.stringify(graphDataArray);
+						graphDataElement.Name = data.Name;
+						graphDataArray.push(graphDataElement);
+						graphDataArrayEncoded = JSON.stringify(graphDataArray);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
