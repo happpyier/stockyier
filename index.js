@@ -14,10 +14,7 @@ app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
 app.get([''], function(request, response) {
-	markit.getQuote('AAPL', function(err, data) {
-     // Where data is an array of stock symbols 
-     tickerName = data.Name;
-   });
+
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
@@ -27,6 +24,10 @@ app.get([''], function(request, response) {
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
+					markit.getQuote(ticker, function(err, data) {
+						// Where data is an array of stock symbols 
+						tickerName = data.Name;
+					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
 			done();
