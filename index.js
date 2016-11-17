@@ -14,10 +14,10 @@ app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 //http://dev.markitondemand.com/MODApis/Api/v2/Quote?symbol=FB API to use for market info.
 
-Markit.getQuote('FB')
+Markit.lookup('Amazon')
     .then(( res ) => {
-        tickerName = typeof(res);
-    });
+        console.log('Results:', res)
+    })
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
