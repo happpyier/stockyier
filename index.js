@@ -35,7 +35,8 @@ app.get([''], function(request, response) {
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					markit.getQuote( "FB", function(err, stock) {
-						response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+						//response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+						response.write(JSON.stringify(stock));
 					});
 				});
 			}
