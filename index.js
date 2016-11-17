@@ -36,7 +36,7 @@ app.get([''], function(request, response) {
 					ticker = value["ticker"];
 					markit.getQuote('AAPL', function(err, stock) {
 					// Where stock is an object of stock data 
-					console.log(stock);
+					console.log("stock");
 					});
 					//markit.getQuote( "FB", function(err, stock) {
 						//response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
