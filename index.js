@@ -33,8 +33,9 @@ app.get([''], function(request, response) {
 				
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
-					markit.getQuote(value["ticker"] , function(err, stock) {
-						response.write( "<div class='ticker'> <boldHeader>" + value["ticker"] + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + value["ticker"] + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+					ticker = value["ticker"];
+					markit.getQuote( ticker, function(err, stock) {
+						response.write( "<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + response.json(stock) + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					});
 				});
 			}
