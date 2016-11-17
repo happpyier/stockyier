@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
 	markit.getStock('AAPL', function(err, data) {
      // Where data is an array of stock symbols 
-     tickerName = data.Name;
+     tickerName = JSON.stringify(data);
    });
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
