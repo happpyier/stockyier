@@ -12,6 +12,7 @@ var tickerName = "";
 var alertVar;
 var graphDataElement = {};
 var graphDataArray = [];
+var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
 app.set('port', (process.env.PORT || 5000));
@@ -40,9 +41,8 @@ app.get([''], function(request, response) {
 						graphDataElement.LabelInterval = 1;
 						graphDataElementName = ticker;
 						graphDataElement.Elements = [ graphDataElementName, "price", [] ];
-						
-						//graphDataArray.push(graphDataElement);
-						graphDataArrayEncoded = JSON.stringify(graphDataElement);
+						pregraphDataArrayEncoded = JSON.stringify(graphDataElement);
+						graphDataArrayEncoded = encodeURI(pregraphDataArrayEncoded);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
