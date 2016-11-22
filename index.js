@@ -62,19 +62,9 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
 	markit.getQuote(tickerId, function(err, data) {
 		tickerName = data.Name;
-		graphDataElement.Normalized = false;
-		 graphDataElement.NumberOfDays = 365;
-		graphDataElement.DataPeriod = "Day";
-		graphDataElement.LabelPeriod = "Month";
-		graphDataElementName = ticker;
-		graphDataElement.Elements = [];
-		tempDataArray.Symbol = graphDataElementName;
-		tempDataArray.Type = "price";
-		tempDataArray.Params = ["c"];
-		graphDataElement.Elements.push(tempDataArray);
-		graphDataArrayEncoded = JSON.stringify(graphDataElement);
+		//graphDataArrayEncoded = JSON.stringify(tickerName);
 	});
-	response.write(tickerId);
+	response.write(tickerName);
 	response.end();
 });
 
