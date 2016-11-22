@@ -27,7 +27,6 @@ app.get([''], function(request, response) {
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
 	});
-	graphDataElement.Elements = [];
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
