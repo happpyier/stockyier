@@ -14,7 +14,7 @@ var tickerId = "";
 var tickerStatus = "";
 var alertVar;
 var graphDataElement = {};
-var graphDataElement.Elements = [];
+//var graphDataElement.Elements = [];
 var graphDataArray = [];
 var tempDataArray = {};
 var pregraphDataArrayEncoded;
