@@ -76,18 +76,16 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
 					var location = "http://stockyier.herokuapp.com/reloadPage";
-					var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
-					client.query(postSqlCustom1, function(err, result) 
-					{
-						if (err)
-							{ resultsidSQL = ("Error " + err); }
-						else
-						{ 
-							//response.redirect(location);
-							//response.end();
-						}
-						done();
-					});
+					// var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
+					// client.query(postSqlCustom1, function(err, result) 
+					// {
+						// if (err)
+							// { resultsidSQL = ("Error " + err); }
+						// else
+						// { 
+						// }
+						// done();
+					// });
 					var postSqlCustom2 = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
 					client.query(postSqlCustom2, function(err, result) 
 					{
