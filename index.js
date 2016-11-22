@@ -5,7 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var highcharts = require('node-highcharts');
-require('highcharts/modules/exporting')(Highcharts);
+// require('highcharts/modules/exporting')(Highcharts);
 var url = require("url");
 var markit = require('node-markitondemand');
 var _screen_name;
