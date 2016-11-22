@@ -104,6 +104,7 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
 		response.write(data);
+		response.end();
 	});
 });
 
