@@ -44,12 +44,10 @@ app.get([''], function(request, response) {
 						tempDataArray.Params = ["c"];
 						graphDataElement.Elements.push(tempDataArray);
 					});
-					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <button class='borderless' onclick="">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
-				// graphDataArray;
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
-			// json?parameters={"Normalized":false,"NumberOfDays":365,"DataPeriod":"Day","Elements":[{"Symbol":"AAPL","Type":"price","Params":["c"// ]}]}
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
 				{
@@ -75,11 +73,25 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 			var titleId = data.Name;
 			if (tickerStatus == "SUCCESS")
 			{
-				var location = "https://stockyier.herokuapp.com/reloadPage"
-				var postSqlCustom = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
+				var postSqlCustom1 = "DELTE FROM stock_table where ticker = '"+tickerId+"'";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
-					client.query(postSqlCustom, function(err, result) 
+					client.query(postSqlCustom1, function(err, result) 
+					{
+						if (err)
+							{ resultsidSQL = ("Error " + err); }
+						else
+						{ 
+							//response.redirect(location);
+							//response.end();
+						}
+						done();
+					});
+				});
+				var postSqlCustom2 = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
+				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+				{
+					client.query(postSqlCustom2, function(err, result) 
 					{
 						if (err)
 							{ resultsidSQL = ("Error " + err); }
