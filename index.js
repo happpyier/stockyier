@@ -75,6 +75,7 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 			{
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
+					var location = "http://stockyier.herokuapp.com/reloadPage";
 					var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
 					client.query(postSqlCustom1, function(err, result) 
 					{
