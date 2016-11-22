@@ -44,15 +44,15 @@ app.get([''], function(request, response) {
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
 	});
-	highcharts.render(options, function(err, data) {
-		if (err) {
-			console.log('Error: ' + err);
-		} else {
-			fs.writeFile('chart.png', data, function() {
-				console.log('Written to chart.png');
-			});
-		}
-	});
+	// highcharts.render(options, function(err, data) {
+		// if (err) {
+			// console.log('Error: ' + err);
+		// } else {
+			// fs.writeFile('chart.png', data, function() {
+				// console.log('Written to chart.png');
+			// });
+		// }
+	// });
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
