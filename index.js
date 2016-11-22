@@ -70,19 +70,17 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	else
 	{
 		markit.getQuote(tickerId, function(err, data) {
-			tickerStatus = typeof(data.Status);
-			response.write(tickerStatus);
-			response.end();
-			// if (tickerStatus == "SUCCESS")
-			// {
-				// response.write("Success");
-				// response.end();
-			// }
-			// else
-			// {
-				// response.write("Incorrect or not existing stock code");
-				// response.end();
-			// }
+			tickerStatus = data.Status;
+			if (tickerStatus == "SUCCESS")
+			{
+				response.write("Success");
+				response.end();
+			}
+			else
+			{
+				response.write("Incorrect or not existing stock code");
+				response.end();
+			}
 		});
 
 	}
