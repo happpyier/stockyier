@@ -88,6 +88,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 			// done();
 		// });
 	// });
+	}
 	else
 	{
 		response.write("Incorrect or not existing stock code");
