@@ -31,8 +31,8 @@ app.get([''], function(request, response) {
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
+					tickerName = value["title"];
 					markit.getQuote(ticker, function(err, data) {
-						tickerName = data.Name;
 						graphDataElement.Normalized = false;
 						 graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
@@ -44,9 +44,8 @@ app.get([''], function(request, response) {
 						tempDataArray.Params = ["c"];
 						graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					});
-					
+					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
 			done();
 			// json?parameters={"Normalized":false,"NumberOfDays":365,"DataPeriod":"Day","Elements":[{"Symbol":"AAPL","Type":"price","Params":["c"// ]}]}
@@ -61,7 +60,7 @@ app.get([''], function(request, response) {
 		});
 	});
 });
-app.get(['/tickersearch/:id'], function(request, response) {
+app.get(['/tickersearch/:id/'], function(request, response) {
 	tickerId = request.params.id;
 	if (tickerId == "invalid")
 	{
@@ -72,10 +71,11 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	{
 		markit.getQuote(tickerId, function(err, data) {
 			tickerStatus = data.Status;
+			var titleId = data.Name;
 			if (tickerStatus == "SUCCESS")
 			{
 				var location = "https://stockyier.herokuapp.com/reloadPage"
-				var postSqlCustom = "INSERT INTO stock_table (ticker) VALUES ('"+tickerId+"')";
+				var postSqlCustom = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
 					client.query(postSqlCustom, function(err, result) 
