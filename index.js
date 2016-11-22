@@ -62,7 +62,7 @@ app.get([''], function(request, response) {
 });
 app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
-	if (tickerId == 'invalid')
+	if (tickerId == "invalid")
 	{
 		response.write("Incorrect or not existing stock code");
 		response.end();
