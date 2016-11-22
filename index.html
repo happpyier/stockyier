@@ -18,7 +18,8 @@
 			function addTicker()
 			{
 
-				var ticker_val = document.getElementById("stock_ticker_add_input").value;
+				var preticker_val = document.getElementById("stock_ticker_add_input").value;
+				var ticker_val = preticker_val.toUpperCase();
 				var matches = ticker_val.match(/\d+/g);
 				if (matches != null) 
 				{
