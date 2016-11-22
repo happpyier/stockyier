@@ -11,6 +11,7 @@ var ticker;
 var tickerName = "";
 var tickerName2 = "";
 var tickerId = "";
+var tickerStatus = "";
 var alertVar;
 var graphDataElement = {};
 var graphDataArray = [];
@@ -62,19 +63,18 @@ app.get([''], function(request, response) {
 app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
 	markit.getQuote(tickerId, function(err, data) {
-		if (err)
-		{
-			response.write(err);
-		}
-		else
-		{
-			tickerName2 = JSON.stringify(data);
-		}
-		
-		//graphDataArrayEncoded = JSON.stringify(tickerName);
+		tickerStatus = data.Status;
 	});
-	response.write(tickerName2);
-	response.end();
+	if (tickerStatus == "SUCCESS")
+	{
+		response.write(tickerId);
+		response.end();
+	}
+	else
+	{
+		response.write("Incorrect or not existing stock code");
+		response.end();
+	}
 });
 
 app.listen(app.get('port'), function() {
