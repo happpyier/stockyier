@@ -73,9 +73,9 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 			var titleId = data.Name;
 			if (tickerStatus == "SUCCESS")
 			{
-				var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
+					var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
 					client.query(postSqlCustom1, function(err, result) 
 					{
 						if (err)
