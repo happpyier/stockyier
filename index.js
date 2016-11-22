@@ -63,11 +63,16 @@ app.get([''], function(request, response) {
 app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
 	markit.getQuote(tickerId, function(err, data) {
-		tickerStatus = data.Status;
+		tickerStatus = JSON.stringify(data.Status);
 		if (tickerStatus == "SUCCESS")
 		{
 			response.write("Success");
 			response.end();
+		}
+		else
+		{
+			dataString = tickerStatus = JSON.stringify(data);
+			response.write(dataString);
 		}
 	});
 	response.end();
