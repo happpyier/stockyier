@@ -4,7 +4,7 @@ var pg = require('pg');
 const https = require('https');
 const fs = require('fs');
 var path = require("path");
-var Highcharts = require('highcharts');
+var highcharts = require('node-highcharts');
 require('highcharts/modules/exporting')(Highcharts);
 var url = require("url");
 var markit = require('node-markitondemand');
@@ -21,46 +21,37 @@ var tempDataArray = {};
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
+var options = {
+        chart: {
+            width: 300,
+            height: 300,
+            defaultSeriesType: 'bar'
+        },
+        legend: {
+            enabled: false
+        },
+        title: {
+            text: 'Highcharts rendered by Node!'
+        },
+        series: [{
+            data: [ 1, 2, 3, 4, 5, 6 ]
+        }]
+    };
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-
-			// $(function () { 
-				// var myChart = Highcharts.chart('container', {
-					// chart: {
-						// type: 'bar'
-					// },
-					// title: {
-						// text: 'Fruit Consumption'
-					// },
-					// xAxis: {
-						// categories: ['Apples', 'Bananas', 'Oranges']
-					// },
-					// yAxis: {
-						// title: {
-							// text: 'Fruit eaten'
-						// }
-					// },
-					// series: [{
-						// name: 'Jane',
-						// data: [1, 0, 4]
-					// }, {
-						// name: 'John',
-						// data: [5, 7, 3]
-					// }]
-				// });
-			// });
-
-
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
 	});
-	var chart = Highcharts.chart('container', {
-		series: [{
-			data: [1, 3, 2, 4]
-		}];
-		// ... more options - see http://api.highcharts.com/highcharts 
+	highcharts.render(options, function(err, data) {
+		if (err) {
+			console.log('Error: ' + err);
+		} else {
+			fs.writeFile('chart.png', data, function() {
+				console.log('Written to chart.png');
+			});
+		}
 	});
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
