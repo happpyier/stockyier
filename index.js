@@ -67,27 +67,8 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	});
 	if (tickerStatus == "SUCCESS")
 	{
-	// var postSqlCustom = "INSERT INTO stock_table (ticker) VALUES ('"+tickerId+"')";
-	// var location = '/tickersearch/';
-	// pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	// {
-		// client.query(postSqlCustom, function(err, result) 
-		// {
-			// if (err)
-				// { resultsidSQL = ("Error " + err); }
-			// else
-			// { 
-				// fs.readFile('reloadPage.html', 'utf8', function (err,data) {
-					// if (err) 
-					// {
-						// return console.log(err);
-					// }
-					// response.end(data);
-				// });
-			// }
-			// done();
-		// });
-	// });
+		response.write(tickerId);
+		response.end();
 	}
 	else
 	{
