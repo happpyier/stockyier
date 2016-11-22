@@ -14,9 +14,9 @@ var tickerId = "";
 var tickerStatus = "";
 var alertVar;
 var graphDataElement = {};
+graphDataElement.Elements = [];
 var graphDataArray = [];
 var tempDataArray = {};
-var thisGraphDataElement = graphDataElement.Elements;
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
@@ -27,10 +27,10 @@ app.get([''], function(request, response) {
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		response.write(data);
 	});
+	graphDataElement.Elements = [];
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
-				graphDataElement.Elements = [];
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					tickerName = value["title"];
@@ -43,7 +43,7 @@ app.get([''], function(request, response) {
 						tempDataArray.Symbol = graphDataElementName;
 						tempDataArray.Type = "price";
 						tempDataArray.Params = ["c"];
-						thisGraphDataElement.push(tempDataArray);
+						graphDataElement.Elements.push(tempDataArray);
 						
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
