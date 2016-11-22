@@ -61,7 +61,15 @@ app.get([''], function(request, response) {
 app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
 	markit.getQuote(tickerId, function(err, data) {
-		tickerName = data.Name;
+		if (err)
+		{
+			response.write(err);
+		}
+		else
+		{
+			tickerName = data.Name;
+		}
+		
 		//graphDataArrayEncoded = JSON.stringify(tickerName);
 	});
 	response.write(tickerName);
