@@ -73,6 +73,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 			tickerStatus = data.Status;
 			if (tickerStatus == "SUCCESS")
 			{
+				var location = "https://stockyier.herokuapp.com/reloadPage"
 				var postSqlCustom = "INSERT INTO stock_table (ticker) VALUES ('"+tickerId+"')";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
@@ -82,7 +83,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 							{ resultsidSQL = ("Error " + err); }
 						else
 						{ 
-							//response.redirect(location);
+							response.redirect(location);
 							response.end();
 						}
 						done();
@@ -97,6 +98,11 @@ app.get(['/tickersearch/:id'], function(request, response) {
 		});
 
 	}
+});
+app.get(['/reloadPage'], function(request, response) {
+	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
+		response.write(data);
+	});
 });
 
 app.listen(app.get('port'), function() {
