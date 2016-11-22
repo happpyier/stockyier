@@ -67,7 +67,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	});
 	if (tickerStatus == "SUCCESS")
 	{
-		response.write(tickerId);
+		response.write("Success");
 		response.end();
 	}
 	else
