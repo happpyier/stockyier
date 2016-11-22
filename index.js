@@ -43,10 +43,11 @@ app.get([''], function(request, response) {
 						tempDataArray.Type = "price";
 						tempDataArray.Params = ["c"];
 						graphDataElement.Elements.push(tempDataArray);
-						graphDataArrayEncoded = JSON.stringify(graphDataElement);
+						
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
+				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
 			// json?parameters={"Normalized":false,"NumberOfDays":365,"DataPeriod":"Day","Elements":[{"Symbol":"AAPL","Type":"price","Params":["c"// ]}]}
 			fs.readFile('index2.html', 'utf8', function (err,data) {
