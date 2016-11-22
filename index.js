@@ -9,6 +9,7 @@ var markit = require('node-markitondemand');
 var _screen_name;
 var ticker;
 var tickerName = "";
+var tickerName2 = "";
 var tickerId = "";
 var alertVar;
 var graphDataElement = {};
@@ -67,12 +68,12 @@ app.get(['/tickersearch/:id'], function(request, response) {
 		}
 		else
 		{
-			tickerName = data.Name;
+			tickerName2 = data.Name;
 		}
 		
 		//graphDataArrayEncoded = JSON.stringify(tickerName);
 	});
-	response.write(tickerName);
+	response.write(tickerName2);
 	response.end();
 });
 
