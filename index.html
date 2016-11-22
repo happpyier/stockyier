@@ -46,6 +46,17 @@
 			}
 			//ticker_hidden
 		</script>
+		<script>
+			function loadGraph()
+			{
+				
+				var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
+				var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
+				document.getElementById('graph_results').src = URL;
+				//alert(URL);
+			}
+			loadGraph();
+		</script>
 	</head>
 	<body>
 		<div id="mainContent">
