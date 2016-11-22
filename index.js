@@ -62,19 +62,23 @@ app.get([''], function(request, response) {
 });
 app.get(['/tickersearch/:id'], function(request, response) {
 	tickerId = request.params.id;
+	if (tickerId == 'invalid')
+	{
+		response.write("Incorrect or not existing stock code");
+		response.end();
+	}
 	markit.getQuote(tickerId, function(err, data) {
-		// tickerStatus = JSON.stringify(data.Status);
-		// if (tickerStatus == "SUCCESS")
-		// {
-			// response.write("Success");
-			// response.end();
-		// }
-		// else
-		// {
-			dataString = tickerStatus = JSON.stringify(data);
-			response.write(dataString);
+		tickerStatus = JSON.stringify(data.Status);
+		if (tickerStatus == "SUCCESS")
+		{
+			response.write("Success");
 			response.end();
-		// }
+		}
+		else
+		{
+			response.write("Incorrect or not existing stock code");
+			response.end();
+		}
 	});
 });
 

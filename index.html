@@ -22,7 +22,8 @@
 				var matches = ticker_val.match(/\d+/g);
 				if (matches != null) 
 				{
-					alert('number');
+					var URL = "https://stockyier.herokuapp.com/tickersearch/invalid;
+					document.getElementById('inputFrame').src = URL;
 				}
 				else
 				{
