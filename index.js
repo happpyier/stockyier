@@ -68,7 +68,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 		}
 		else
 		{
-			tickerName2 = data.Name;
+			tickerName2 = JSON.stringify(data);
 		}
 		
 		//graphDataArrayEncoded = JSON.stringify(tickerName);
