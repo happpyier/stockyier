@@ -16,6 +16,7 @@ var alertVar;
 var graphDataElement = {};
 var graphDataArray = [];
 var tempDataArray = {};
+var thisGraphDataElement = graphDataElement.Elements;
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
@@ -42,7 +43,7 @@ app.get([''], function(request, response) {
 						tempDataArray.Symbol = graphDataElementName;
 						tempDataArray.Type = "price";
 						tempDataArray.Params = ["c"];
-						graphDataElement.Elements.push(tempDataArray);
+						thisGraphDataElement.push(tempDataArray);
 						
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
