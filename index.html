@@ -20,7 +20,8 @@
 				var ticker_val = document.getElementById("stock_ticker_add_input").value;
 				if (ticker_val.length > 0)
 				{
-					alert(ticker_val);
+					var URL = "https://stockyier.herokuapp.com/tickersearch/"+ticker_val;
+					document.getElementById('inputFrame').src = URL;
 				}
 			}
 			//ticker_hidden

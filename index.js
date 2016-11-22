@@ -9,6 +9,7 @@ var markit = require('node-markitondemand');
 var _screen_name;
 var ticker;
 var tickerName = "";
+var tickerId = "";
 var alertVar;
 var graphDataElement = {};
 var graphDataArray = [];
@@ -57,8 +58,25 @@ app.get([''], function(request, response) {
 		});
 	});
 });
-
-
+app.get(['/tickersearch/:id'], function(request, response) {
+	tickerId = request.params.id;
+	markit.getQuote(tickerId, function(err, data) {
+		tickerName = data.Name;
+		graphDataElement.Normalized = false;
+		 graphDataElement.NumberOfDays = 365;
+		graphDataElement.DataPeriod = "Day";
+		graphDataElement.LabelPeriod = "Month";
+		graphDataElementName = ticker;
+		graphDataElement.Elements = [];
+		tempDataArray.Symbol = graphDataElementName;
+		tempDataArray.Type = "price";
+		tempDataArray.Params = ["c"];
+		graphDataElement.Elements.push(tempDataArray);
+		graphDataArrayEncoded = JSON.stringify(graphDataElement);
+	});
+	response.write(tickerId);
+	response.end();
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
