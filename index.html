@@ -6,7 +6,7 @@
 			boldHeader { font-size: 20px; color: black; }
 			iframe { border: none; width: 300px; height: 60px; }
 			#footerContent { color: white; margin-left: 50%; margin-right: 50%; }
-			#graph_results { width: 100%; height: 400px;  }
+			#container { width: 100%; height: 400px;  }
 			#mainContent { background-color: DarkSlateGray; color: white; margin: 50 250 50 250; height: 800px; }
 			#ticker_results { width: 100%; }
 			.borderless { border: none; }
@@ -15,6 +15,7 @@
 			
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script>
 		<script>
 			function addTicker()
 			{
@@ -44,14 +45,36 @@
 				var URL = "https://stockyier.herokuapp.com/tickerRemove/"+ticker_val1;
 				document.getElementById('inputFrame').src = URL;
 			}
-			//ticker_hidden
+			$(function () { 
+				var myChart = Highcharts.chart('container', {
+					chart: {
+						type: 'bar'
+					},
+					title: {
+						text: 'Fruit Consumption'
+					},
+					xAxis: {
+						categories: ['Apples', 'Bananas', 'Oranges']
+					},
+					yAxis: {
+						title: {
+							text: 'Fruit eaten'
+						}
+					},
+					series: [{
+						name: 'Jane',
+						data: [1, 0, 4]
+					}, {
+						name: 'John',
+						data: [5, 7, 3]
+					}]
+				});
+			});
 		</script>
 		
 	</head>
 	<body>
 		<div id="mainContent">
-			<iframe id="graph_results">
-				This will be where the graph is!
-			</iframe>
+			<div id="container"></div>
 			<div id="chartDemoContainer"> </div>
 			<div id="ticker_results">
