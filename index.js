@@ -73,8 +73,21 @@ app.get(['/tickersearch/:id'], function(request, response) {
 			tickerStatus = data.Status;
 			if (tickerStatus == "SUCCESS")
 			{
-				response.write("Success");
-				response.end();
+				var postSqlCustom = "INSERT INTO stock_table (ticker) VALUES ('"+tickerId+"')";
+				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+				{
+					client.query(postSqlCustom, function(err, result) 
+					{
+						if (err)
+							{ resultsidSQL = ("Error " + err); }
+						else
+						{ 
+							//response.redirect(location);
+							response.end();
+						}
+						done();
+					});
+				});
 			}
 			else
 			{
