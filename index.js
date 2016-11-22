@@ -4,6 +4,8 @@ var pg = require('pg');
 const https = require('https');
 const fs = require('fs');
 var path = require("path");
+var Highcharts = require('highcharts');
+require('highcharts/modules/exporting')(Highcharts);
 var url = require("url");
 var markit = require('node-markitondemand');
 var _screen_name;
@@ -21,6 +23,39 @@ var graphDataArrayEncoded;
 var graphDataElementName = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
+var chart = Highcharts.chart('container', {
+    series: [{
+        data: [1, 3, 2, 4]
+    }],
+  	// ... more options - see http://api.highcharts.com/highcharts 
+});
+			// $(function () { 
+				// var myChart = Highcharts.chart('container', {
+					// chart: {
+						// type: 'bar'
+					// },
+					// title: {
+						// text: 'Fruit Consumption'
+					// },
+					// xAxis: {
+						// categories: ['Apples', 'Bananas', 'Oranges']
+					// },
+					// yAxis: {
+						// title: {
+							// text: 'Fruit eaten'
+						// }
+					// },
+					// series: [{
+						// name: 'Jane',
+						// data: [1, 0, 4]
+					// }, {
+						// name: 'John',
+						// data: [5, 7, 3]
+					// }]
+				// });
+			// });
+
+
 app.get([''], function(request, response) {
 	var queryForSQL = "SELECT * FROM stock_table";
 	fs.readFile('index.html', 'utf8', function (err,data) {
