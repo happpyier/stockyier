@@ -29,7 +29,7 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
-				graphDataElement.Elements = [];
+				
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					tickerName = value["title"];
@@ -42,10 +42,11 @@ app.get([''], function(request, response) {
 						tempDataArray.Symbol = graphDataElementName;
 						tempDataArray.Type = "price";
 						tempDataArray.Params = ["c"];
-						graphDataElement.Elements.push(tempDataArray);
+						graphDataArray.push(tempDataArray);
 					});
 					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
+				graphDataElement.Elements = graphDataArray;
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
 			// json?parameters={"Normalized":false,"NumberOfDays":365,"DataPeriod":"Day","Elements":[{"Symbol":"AAPL","Type":"price","Params":["c"// ]}]}
