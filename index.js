@@ -70,7 +70,7 @@ app.get(['/tickersearch/:id'], function(request, response) {
 	else
 	{
 		markit.getQuote(tickerId, function(err, data) {
-			tickerStatus = JSON.stringify(data.Status);
+			tickerStatus = data.Status;
 		});
 		if (tickerStatus == "SUCCESS")
 		{
