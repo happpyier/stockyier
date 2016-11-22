@@ -73,8 +73,7 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 			var titleId = data.Name;
 			if (tickerStatus == "SUCCESS")
 			{
-				var postSqlCustom1 = "DELTE FROM stock_table where ticker = '"+tickerId+"'";
-				var postSqlCustom2 = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
+				var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
 					client.query(postSqlCustom1, function(err, result) 
@@ -88,7 +87,7 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 						}
 						done();
 					});
-					
+					var postSqlCustom2 = "INSERT INTO stock_table (ticker, title) VALUES ('"+tickerId+"', '"+titleId+"')";
 					client.query(postSqlCustom2, function(err, result) 
 					{
 						if (err)
