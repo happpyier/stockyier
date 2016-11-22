@@ -44,7 +44,7 @@ app.get([''], function(request, response) {
 						tempDataArray.Params = ["c"];
 						graphDataElement.Elements.push(tempDataArray);
 					});
-					response.write("<div class='ticker'> <boldHeader>" + ticker + "</boldHeader> <button class='borderless' onclick='removeMe();'>x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick='removeTicker("+ticker+");'>x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
@@ -108,6 +108,26 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 		});
 
 	}
+});
+app.get(['/tickerRemove/:id/'], function(request, response) {
+	tickerId = request.params.id;
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		var location = "http://stockyier.herokuapp.com/reloadPage";
+		var postSqlCustom1 = "DELETE FROM stock_table where ticker = '"+tickerId+"'";
+		client.query(postSqlCustom1, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{
+				response.redirect(location);
+				response.end();						
+			}
+			done();
+		});
+	});
+
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
