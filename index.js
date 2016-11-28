@@ -13,7 +13,6 @@ var tickerName2 = "";
 var tickerId = "";
 var tickerStatus = "";
 var alertVar;
-var graphDataElement;
 var graphDataArray = [];
 var graphDataElement.Elements = [];
 var tempDataArray = {};
