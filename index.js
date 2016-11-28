@@ -17,7 +17,6 @@ var graphDataElement = {};
 var graphDataArray = [];
 var pretempDataArray = {};
 var tempDataArray = {};
-var graphDataElement.Elements = [];
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
@@ -31,6 +30,7 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
+				graphDataElement.Elements = [];
 				for (var h=0; h<testSQlValue.length; h++){
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
