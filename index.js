@@ -35,7 +35,7 @@ app.get([''], function(request, response) {
 					tickerName = value["title"];
 					graphDataElement.Elements = [];
 					markit.getQuote(ticker, function(err, data) {
-						tempDataArray = {};
+						tempDataArray;
 						graphDataElement.Normalized = false;
 						graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
