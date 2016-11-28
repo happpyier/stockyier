@@ -13,6 +13,7 @@ var tickerName2 = "";
 var tickerId = "";
 var tickerStatus = "";
 var alertVar;
+var graphDataElement = [];
 var graphDataArray = [];
 var graphDataElement.Elements = [];
 var tempDataArray = {};
@@ -35,6 +36,7 @@ app.get([''], function(request, response) {
 					tickerName = value["title"];
 					
 					markit.getQuote(ticker, function(err, data) {
+						
 						tempDataArray = {};
 						graphDataElement.Normalized = false;
 						graphDataElement.NumberOfDays = 365;
