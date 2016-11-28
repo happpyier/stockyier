@@ -33,9 +33,9 @@ app.get([''], function(request, response) {
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					tickerName = value["title"];
-					graphDataElement.Elements = [];
 					markit.getQuote(ticker, function(err, data) {
-						tempDataArray;
+						graphDataElement.Elements = [];
+						tempDataArray = {};
 						graphDataElement.Normalized = false;
 						graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
