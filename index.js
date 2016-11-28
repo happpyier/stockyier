@@ -33,7 +33,7 @@ app.get([''], function(request, response) {
 				graphDataElement.Elements = [];
 				//testSQlValue.forEach(function(value){
 				for (var h=0; h<testSQlValue.length; h++){
-					ticker = testSQlValue[0]["ticker"];
+					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
 					graphDataElement.NumberOfDays = 365;
