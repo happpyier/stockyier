@@ -34,19 +34,19 @@ app.get([''], function(request, response) {
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					tickerName = value["title"];
+					graphDataElement.Elements = [];
 					markit.getQuote(ticker, function(err, data) {
-						graphDataElement.Elements = [];
+						
 						graphDataElement.Normalized = false;
 						graphDataElement.NumberOfDays = 365;
 						graphDataElement.DataPeriod = "Day";
 						graphDataElement.LabelPeriod = "Month";
 						graphDataElementName = ticker;
-						pretempDataArray.Symbol = graphDataElementName;
-						pretempDataArray.Type = "price";
-						pretempDataArray.Params = ["c"];
-						tempDataArray.push(pretempDataArray);
 					});
-					graphDataElement.Elements.push(tempDataArray);	
+						tempDataArray.Symbol = ticker;
+						tempDataArray.Type = "price";
+						tempDataArray.Params = ["c"];
+						graphDataElement.Elements.push(tempDataArray);	
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
