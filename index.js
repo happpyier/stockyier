@@ -13,10 +13,9 @@ var tickerName2 = "";
 var tickerId = "";
 var tickerStatus = "";
 var alertVar;
-var graphDataElement = [];
+var graphDataElement;
 var graphDataArray = [];
-var graphDataElement.Elements = [];
-var tempDataArray = {};
+var tempDataArray;
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
@@ -34,9 +33,8 @@ app.get([''], function(request, response) {
 				testSQlValue.forEach(function(value){
 					ticker = value["ticker"];
 					tickerName = value["title"];
-					
+					graphDataElement.Elements = [];
 					markit.getQuote(ticker, function(err, data) {
-						
 						tempDataArray = {};
 						graphDataElement.Normalized = false;
 						graphDataElement.NumberOfDays = 365;
