@@ -46,10 +46,9 @@ app.get([''], function(request, response) {
 						pretempDataArray.Params = ["c"];
 						tempDataArray.push(pretempDataArray);
 					});
-						
+					graphDataElement.Elements.push(tempDataArray);	
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 				});
-				graphDataElement.Elements.push(tempDataArray);
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
