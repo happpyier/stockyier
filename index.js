@@ -31,9 +31,10 @@ app.get([''], function(request, response) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
 				graphDataElement.Elements = [];
-				testSQlValue.forEach(function(value){
-					ticker = value["ticker"];
-					tickerName = value["title"];
+				//testSQlValue.forEach(function(value){
+				for (var h=0; h<testSQlValue.length; h++){
+					ticker = testSQlValue[h]["ticker"];
+					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
@@ -43,7 +44,7 @@ app.get([''], function(request, response) {
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);	
-				});
+				};
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
