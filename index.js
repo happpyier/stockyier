@@ -30,7 +30,7 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
-				graphDataElement.Elements = {};
+				graphDataElement.Elements = [];
 				for (var h=0; h<testSQlValue.length; h++){
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
@@ -38,9 +38,10 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
-					graphDataElement.Elements[h].Symbol = h;
-					graphDataElement.Elements[h].Type = "price";
-					graphDataElement.Elements[h].Params = ["c"];
+					tempDataArray.Symbol = h;
+					tempDataArray.Type = "price";
+					tempDataArray.Params = ["c"];
+					graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");	
 				};
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
