@@ -32,7 +32,6 @@ app.get([''], function(request, response) {
 				testSQlValue = result.rows;
 				graphDataElement.Elements = [];
 				for (var h=0; h<testSQlValue.length; h++){
-					tempDataArray.Symbol = "";
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
