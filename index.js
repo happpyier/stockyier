@@ -38,10 +38,9 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
-					tempDataArray[h].Symbol = h;
-					tempDataArray[h].Type = "price";
-					tempDataArray[h].Params = ["c"];
-					graphDataElement.Elements.push(tempDataArray[h]);
+					graphDataElement.Elements[h].Symbol = h;
+					graphDataElement.Elements[h].Type = "price";
+					graphDataElement.Elements[h].Params = ["c"];
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");	
 				};
 				graphDataArrayEncoded = JSON.stringify(graphDataElement);
