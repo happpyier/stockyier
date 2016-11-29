@@ -43,16 +43,18 @@ app.get([''], function(request, response) {
 					tempDataArray.Type = "price"+h;
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
-					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");	
+					graphDataArrayEncoded = JSON.stringify(graphDataElement);
+					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
+					response.write("<div style='display:block;' id='data_block_hidden_"+h+"'>" + graphDataArrayEncoded + "</div>");					
 				};
-				graphDataArrayEncoded = JSON.stringify(graphDataElement);
+				
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
 				{
 					return console.log(err);
 				}
-				response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+				//response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 				response.end(data);
 			});
 		});
