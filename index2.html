@@ -5,6 +5,12 @@
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters?="+graphData;
 					document.getElementById('graph_results').src = URL;
+					$( document ).ready(function() {
+						var x = document.getElementById("graph_results");
+						var y = (x.contentWindow.pre.innerHTML || x.contentDocument.pre.innerHTML);
+						alert (y);
+					});
+					
 					$(function () {
 
 						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
