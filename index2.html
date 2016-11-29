@@ -7,7 +7,7 @@
 					//document.getElementById('graph_results').src = URL;
 					//alert(URL);
 					$(function () {
-						$.getJSON("http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters={%22Elements%22:[{%22Symbol%22:%22ATVI%22,%22Type%22:%22price%22,%22Params%22:[%22c%22]},{%22Symbol%22:%22ATVI%22,%22Type%22:%22price%22,%22Params%22:[%22c%22]},{%22Symbol%22:%22ATVI%22,%22Type%22:%22price%22,%22Params%22:[%22c%22]}],%22Normalized%22:false,%22NumberOfDays%22:365,%22DataPeriod%22:%22Day%22,%22LabelPeriod%22:%22Month%22}", function (data) {
+						$.getJSON(URL, function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 								rangeSelector: {
