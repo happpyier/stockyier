@@ -31,6 +31,7 @@ app.get([''], function(request, response) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
 				graphDataElement.Elements = [];
+				tempDataArray.Symbol = 0;
 				for (var h=0; h<testSQlValue.length; h++){
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
@@ -51,7 +52,7 @@ app.get([''], function(request, response) {
 				{
 					return console.log(err);
 				}
-				response.write("<div style='display:none;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+				response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 				response.end(data);
 			});
 		});
