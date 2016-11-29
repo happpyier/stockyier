@@ -4,7 +4,7 @@
 			a:link { color: white; background-color: transparent; text-decoration: none; }
 			body { background-color: gray; }
 			boldHeader { font-size: 20px; color: black; }
-			iframe { border: none; width: 300px; height: 60px; }
+			iframe { border: none; }
 			#footerContent { color: white; margin-left: 50%; margin-right: 50%; }
 			#container { width: 100%; height: 400px;  }
 			#mainContent { background-color: DarkSlateGray; color: white; margin: 50 250 50 250; height: 800px; }
@@ -50,9 +50,10 @@
 	</head>
 	<body>
 		<div id="mainContent">
-			<iframe id="graph_results" >
+			<div id="container">
+				<iframe id="graph_results" >
 				This will be where the graph is!
-			</iframe>
-			<div id="container"></div>
-			<div id="chartDemoContainer"> </div>
+				</iframe>
+			</div>
+			<!-- <div id="chartDemoContainer"> </div> -->
 			<div id="ticker_results">
