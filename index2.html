@@ -4,19 +4,29 @@
 					
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
-					$.getJSON( URL, function( data ) {
-				  var items = [];
-				  $.each( data, function( key, val ) {
-					items.push( "<li id='" + key + "'>" + val + "</li>" );
-				  });
-				 
-				  $( "<ul/>", {
-					"class": "my-new-list",
-					html: items.join( "" )
-				  }).appendTo( "body" );
-				});
 					//document.getElementById('graph_results').src = URL;
 					//alert(URL);
+					$(function () {
+						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+							// Create the chart
+							Highcharts.stockChart('container', {
+								rangeSelector: {
+									selected: 1
+								},
+								title: {
+									text: 'AAPL Stock Price'
+								},
+								series: [{
+									name: 'AAPL',
+									data: data,
+									tooltip: {
+										valueDecimals: 2
+									}
+								}]
+							});
+						});
+					});
+
 				}
 				loadGraph();
 				</script>
