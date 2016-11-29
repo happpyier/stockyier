@@ -6,8 +6,8 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
-					var dataFound = document.getElementById('graph_results').pre.innerHTML;
-					var preData = dataFound;
+					var dataFound = document.getElementById('graph_results');
+					var preData = dataFound.contentWindow.document.pre;
 					alert (preData);
 					 }, 3000);
 					//var dataForHighCharts =
