@@ -45,7 +45,7 @@ app.get([''], function(request, response) {
 					graphDataElement.Elements.push(tempDataArray);
 					graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
-					if (h > testSQlValue.length)
+					if (h == testSQlValue.length)
 					{
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
