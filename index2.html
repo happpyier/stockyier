@@ -5,9 +5,11 @@
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
+					setTimeout(function(){
 					var dataFound = document.getElementById('graph_results').innerHTML;
 					var preData = JSON.parse(dataFound);
 					alert (preData);
+					 }, 3000);
 					//var dataForHighCharts =
 					//alert(URL);
 					/*
