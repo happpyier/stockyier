@@ -3,25 +3,31 @@
 				{
 					
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
-					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData+"callback=?";
+					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					var dataFound = document.getElementById('graph_results').innerHTML;
 					//alert(URL);
-					$(document).ready(function() {
-						var options = {
-							chart: {
-								renderTo: 'container',
-								type: 'spline'
-							},
-							series: [{}]
-						};
-						
-						//var url =  "http://url-to-your-remote-server/jsonp.php?callback=?";
-						$.getJSON(URL,  function(data) {
-							options.series[0].data = data;
-							var chart = new Highcharts.Chart(options);
+					$(function () {
+						$.getJSON(dataFound, function (data) {
+							// Create the chart
+							Highcharts.stockChart('container', {
+								rangeSelector: {
+									selected: 1
+								},
+								title: {
+									text: 'AAPL Stock Price'
+								},
+								series: [{
+									name: 'AAPL',
+									data: data,
+									tooltip: {
+										valueDecimals: 2
+									}
+								}]
+							});
 						});
 					});
+
 				}
 				loadGraph();
 				</script>
