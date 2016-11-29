@@ -3,27 +3,23 @@
 				{
 					
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
-					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?callback=www.google.com?parameters?="+graphData;
+					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters?="+graphData;
 					document.getElementById('graph_results').src = URL;
-					setTimeout(function(){
-					var iframe = document.getElementById('graph_results');
-					var dataFound = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
-					//var preData = dataFound.contentWindow.document.pre;
-					alert (dataFound);
-					 }, 3000);
-					//var dataForHighCharts =
-					//alert(URL);
-					/*
 					$(function () {
-							function (data) {
+
+						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
+
+
 								rangeSelector: {
 									selected: 1
 								},
+
 								title: {
 									text: 'AAPL Stock Price'
 								},
+
 								series: [{
 									name: 'AAPL',
 									data: data,
@@ -32,9 +28,9 @@
 									}
 								}]
 							});
-					});
-					*/
+						});
 
+					});
 				}
 				loadGraph();
 				</script>
