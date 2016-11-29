@@ -8,7 +8,7 @@
 					var dataFound = document.getElementById('graph_results').innerHTML;
 					//alert(URL);
 					$(function () {
-						$.getJSON(dataFound, function (data) {
+						$.getJSON(URL, function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 								rangeSelector: {
