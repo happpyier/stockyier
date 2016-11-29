@@ -38,15 +38,19 @@ app.get([''], function(request, response) {
 					graphDataElement.Normalized = false;
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
-					graphDataElement.LabelPeriod = "Month"+h;
-					tempDataArray.Symbol = ticker;
+					graphDataElement.LabelPeriod = "Month";
+					tempDataArray.Symbol += ticker;
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
 					graphDataArrayEncoded = JSON.stringify(graphDataElement);
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
-					response.write("<div style='display:hidden;' id='data_block_hidden_"+h+"'>" + graphDataArrayEncoded + "</div>");					
+					if (h > testSQlValue.length)
+					{
+						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+					}					
 				};
+					
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
