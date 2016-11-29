@@ -6,9 +6,13 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?callback=stockyier.herokuapp.com?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					var dataFound = document.getElementById('graph_results').innerHTML;
+					var preData = JSON.parse(dataFound);
+					alert (preData);
+					//var dataForHighCharts =
 					//alert(URL);
+					/*
 					$(function () {
-						$.getJSON(URL, function (data) {
+							function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 								rangeSelector: {
@@ -25,8 +29,8 @@
 									}
 								}]
 							});
-						});
 					});
+					*/
 
 				}
 				loadGraph();
