@@ -4,10 +4,11 @@
 					
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
-					//document.getElementById('graph_results').src = URL;
+					document.getElementById('graph_results').src = URL;
+					var dataFound = document.getElementById('graph_results').innerHTML;
 					//alert(URL);
 					$(function () {
-						$.getJSON(URL, function (data) {
+						$.getJSON(dataFound, function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 								rangeSelector: {
