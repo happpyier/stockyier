@@ -3,7 +3,7 @@
 				{
 					
 					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
-					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters?callback='www.google.com'?="+graphData;
+					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters?callback=www.google.com?="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
 					var iframe = document.getElementById('graph_results');
