@@ -7,7 +7,7 @@
 					//document.getElementById('graph_results').src = URL;
 					//alert(URL);
 					$(function () {
-						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+						$.getJSON(URL, function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 								rangeSelector: {
