@@ -7,8 +7,8 @@
 					document.getElementById('graph_results').src = URL;
 					$( document ).ready(function() {
 						var x = document.getElementById("graph_results");
-						var prey = x.contentDocument;
-						var y = typeof(prey);
+						var prey = x.contentDocument.Labels;
+						var y = prey;
 						alert (y);
 					});
 					/*
