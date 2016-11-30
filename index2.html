@@ -6,9 +6,9 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					$( document ).ready(function() {
-						var x = document.getElementById("graph_results");
+						var x = document.getElementById("graph_results").innerHTML;
 						var prey = ( x.contentWindow.innerHTML );
-						var y = prey;
+						var y = x;
 						alert (y);
 					});
 					/*
