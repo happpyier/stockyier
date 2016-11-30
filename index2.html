@@ -11,7 +11,7 @@
 						var y = x;
 						//alert (y);
 					});
-					/*
+
 					$(function () {
 
 						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
@@ -33,12 +33,18 @@
 									tooltip: {
 										valueDecimals: 2
 									}
+								},
+								{
+									name: 'AAPL',
+									data: data,
+									tooltip: {
+										valueDecimals: 2
+									}
 								}]
 							});
 						});
 
 					});
-					*/
 				}
 				loadGraph();
 				</script>
