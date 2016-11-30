@@ -6,6 +6,13 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var markit = require('node-markitondemand');
+var Highcharts = require('highcharts');
+
+// Load module after Highcharts is loaded
+require('highcharts/modules/exporting')(Highcharts);
+
+// Create the chart
+Highcharts.chart('container', { /*Highcharts options*/ });
 var _screen_name;
 var ticker;
 var tickerName = "";
@@ -48,7 +55,15 @@ app.get([''], function(request, response) {
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
-					}					
+						var chart = Highcharts.chart('container', {
+						series: [{
+							data: [1, 3, 2, 4]
+						}],
+						// ... more options - see http://api.highcharts.com/highcharts 
+						});	
+					}
+					// Generate the chart 
+				
 				};
 					
 			done();
