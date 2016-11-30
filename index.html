@@ -47,13 +47,17 @@
 				var URL = "https://stockyier.herokuapp.com/tickerRemove/"+ticker_val1;
 				document.getElementById('inputFrame').src = URL;
 			}
-			document.domain = "http://stockyier.herokuapp.com/";
+			document.domain = "stockyier.herokuapp.com";
 		</script>
 		
 	</head>
 	<body>
 		<div id="mainContent">
 			 <div id="container" class="hidden"> </div>
-			<iframe id="graph_results" class="hidden_"> </iframe>
+			<iframe id="graph_results" class="hidden_">
+				<script>
+							document.domain = "stockyier.herokuapp.com";
+				</script>
+			</iframe>
 			<div id="chartDemoContainer"> </div>
 			<div id="ticker_results">
