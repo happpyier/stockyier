@@ -7,7 +7,7 @@
 					document.getElementById('graph_results').src = URL;
 					$( document ).ready(function() {
 						var x = document.getElementById("graph_results");
-						var prey = ( x.contentDocument );
+						var prey = ( x.contentWindow );
 						var y = Object.keys(prey);
 						alert (y);
 					});
