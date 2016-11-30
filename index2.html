@@ -6,15 +6,12 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					$( document ).ready(function() {
-						var x = document.getElementById("graph_results");
-						var prey = ( x.contentWindow.document.location );
-						var y = prey;
-						alert (y);
+						//alert (graphData);
 					});
 					/** 
 					 * Version 2.0
 					 */
-					var Markit = {};
+					var Markit = {graphData, 10};
 					/**
 					 * Define the InteractiveChartApi.
 					 * First argument is symbol (string) for the quote. Examples: AAPL, MSFT, JNJ, GOOG.
