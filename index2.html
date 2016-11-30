@@ -6,7 +6,7 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
-						document.getElementById("chartDemoContainer").innerHTML = document.getElementById('iframe_container').iframe.innerHTML + "...Data";
+						document.getElementById("chartDemoContainer").innerHTML = document.getElementById('graph_results').innerHTML + "...Data";
 						//var x = document.getElementById("chartDemoContainer");
 						//var prey = typeof( x );
 						//var y = x;
