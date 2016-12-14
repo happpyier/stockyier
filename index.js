@@ -42,14 +42,14 @@ app.get([''], function(request, response) {
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
-						var x = document.getElementsByClassName("tempDataArrayVal");
-						for (var j = 0; j < x.length; j++) 
-						{
-							tempDataArray.Symbol = x[j].innerHTML;
-							tempDataArray.Type = "price";
-							tempDataArray.Params = ["c"];
-							//graphDataElement.Elements.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
-						}
+						// var x = document.getElementsByClassName("tempDataArrayVal");
+						// for (var j = 0; j < x.length; j++) 
+						// {
+							// tempDataArray.Symbol = x[j].innerHTML;
+							// tempDataArray.Type = "price";
+							// tempDataArray.Params = ["c"];
+							// graphDataElement.Elements.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
+						// }
 								// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
