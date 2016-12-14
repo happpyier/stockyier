@@ -38,22 +38,25 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
+					tempDataArray.Symbol = ticker;
+					tempDataArray.Type = "price";
+					tempDataArray.Params = ["c"];
+					graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
 						
-						var x = document.getElementsByClassName("tempDataArrayVal");
-						var j;
-						for (j = 0; j < x.length; j++) {
-							tempDataArray.Symbol += x[j].innerHTML;
-							tempDataArray.Type = "price";
-							tempDataArray.Params = ["c"];
+						// var x = document.getElementsByClassName("tempDataArrayVal");
+						// var j;
+						// for (j = 0; j < x.length; j++) {
+							// tempDataArray.Symbol += x[j].innerHTML;
+							// tempDataArray.Type = "price";
+							// tempDataArray.Params = ["c"];
 							
-						}
-						//graphDataElement.Elements.push(tempDataArray);
-						graphDataArrayEncoded = JSON.stringify(tempDataArray);
-						// graphDataArrayEncoded = JSON.stringify(graphDataElement);
+						// }
+						// graphDataElement.Elements.push(tempDataArray);
+						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};
