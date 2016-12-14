@@ -30,8 +30,8 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
-				for (var h=0; h<testSQlValue.length; h++){
-
+				graphDataElement.Elements = [];
+				for (var h=0; h<testSQlValue.length; h++)
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
@@ -42,7 +42,7 @@ app.get([''], function(request, response) {
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
-						graphDataElement.Elements = [];
+						
 						for (j = 0; j < x.length; j++) 
 						{
 							tempDataArray.Symbol = x[j].innerHTML;
