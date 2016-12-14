@@ -30,6 +30,7 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
+				graphDataElement.Elements = {};
 				tempDataArray.Symbol = 0;
 				for (var h=0; h<testSQlValue.length; h++){
 					ticker = testSQlValue[h]["ticker"];
