@@ -48,7 +48,7 @@ app.get([''], function(request, response) {
 							tempDataArray.Symbol = x[j].innerHTML;
 							tempDataArray.Type = "price";
 							tempDataArray.Params = ["c"];
-							graphDataElement.Elements.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
+							//graphDataElement.Elements.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
 						}
 								// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
