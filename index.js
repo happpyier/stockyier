@@ -48,14 +48,14 @@ app.get([''], function(request, response) {
 					if (h == (testSQlValue.length-1))
 					{
 						
-						var x = document.getElementsByClassName("tempDataArrayVal");
-						var j;
-						for (j = 0; j < x.length; j++) {
-							tempDataArray.Symbol = x[j].innerHTML;
-							tempDataArray.Type = "price";
-							tempDataArray.Params = ["c"];
-						}
-						graphDataElement.Elements.push(tempDataArray);
+						// var x = document.getElementsByClassName("tempDataArrayVal");
+						// var j;
+						// for (j = 0; j < x.length; j++) {
+							// tempDataArray.Symbol = x[j].innerHTML;
+							// tempDataArray.Type = "price";
+							// tempDataArray.Params = ["c"];
+						// }
+						// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
