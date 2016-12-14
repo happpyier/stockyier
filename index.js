@@ -30,8 +30,9 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
+				graphDataElement.Elements = [];
+				tempDataArray.Symbol = 0;
 				for (var h=0; h<testSQlValue.length; h++){
-					graphDataElement.Elements = [];
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
@@ -53,7 +54,7 @@ app.get([''], function(request, response) {
 							tempDataArray.Symbol = x[j].innerHTML;
 							tempDataArray.Type = "price";
 							tempDataArray.Params = ["c"];
-							
+							graphDataElement.Elements.push(tempDataArray);
 						}
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
