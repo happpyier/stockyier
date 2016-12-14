@@ -30,7 +30,7 @@ app.get([''], function(request, response) {
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 				testSQlValue = result.rows;
-				for (var h=0; h<testSQlValue.length; h++)
+				for (var h=0; h<testSQlValue.length; h++){
 					graphDataElement.Elements = [];
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
@@ -38,19 +38,23 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
+					//tempDataArray.Symbol = ticker;
+					//tempDataArray.Type = "price";
+					//tempDataArray.Params = ["c"];
+					//graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
-						// var x = document.getElementsByClassName("tempDataArrayVal");
-						// for (var j = 0; j < x.length; j++) 
-						// {
-							// tempDataArray.Symbol = x[j].innerHTML;
-							// tempDataArray.Type = "price";
-							// tempDataArray.Params = ["c"];
-							// graphDataElement.Elements.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
-						// }
-								// graphDataElement.Elements.push(tempDataArray);
+						
+						var x = document.getElementsByClassName("tempDataArrayVal");
+						var j;
+						for (j = 0; j < x.length; j++) {
+							tempDataArray.Symbol = x[j].innerHTML;
+							tempDataArray.Type = "price";
+							tempDataArray.Params = ["c"];
+							
+						}
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
