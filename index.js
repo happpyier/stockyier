@@ -42,8 +42,8 @@ app.get([''], function(request, response) {
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
-						
-						for (j = 0; j < x.length; j++) 
+						var x = document.getElementsByClassName("tempDataArrayVal");
+						for (var j = 0; j < x.length; j++) 
 						{
 							tempDataArray.Symbol = x[j].innerHTML;
 							tempDataArray.Type = "price";
