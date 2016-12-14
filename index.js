@@ -50,11 +50,11 @@ app.get([''], function(request, response) {
 						
 						var x = document.getElementsByClassName("tempDataArrayVal");
 						var j;
-						for (j = 0; j < x.length; j++) {
+						//for (j = 0; j < x.length; j++) {
 							graphDataElement.Elements.Symbol = x[j].innerHTML;
 							graphDataElement.Elements.Type = "price";
 							graphDataElement.Elements.Params = ["c"];
-						}
+						//}
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
