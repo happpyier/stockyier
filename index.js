@@ -39,13 +39,8 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
-					// tempDataArray.Symbol = ticker;
-					// tempDataArray.Type = "price";
-					// tempDataArray.Params = ["c"];
-					// graphDataElement.Elements.push(tempDataArray);
-					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
-					var x = document.getElementsByClassName("tempDataArrayVal");
-					tempDataArray.Symbol = x[0].innerHTML;
+					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
+					tempDataArray.Symbol += ticker;
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
