@@ -41,13 +41,15 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
-					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					sub_array.push(ticker);
 					tempDataArray.Symbol = sub_array[0];
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
-					//sub_array.shift();
+					//graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"'price','Params':['c']}");
+					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
+					response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
+					sub_array.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
@@ -70,7 +72,7 @@ app.get([''], function(request, response) {
 					// super_array.push(sub_array[0]);
 					// sub_array.shift();
 				// }
-				response.write("SUPER ARRAY...." + sub_array + "....SUPER ARRAY");				
+							
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
