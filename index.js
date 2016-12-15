@@ -66,7 +66,7 @@ app.get([''], function(request, response) {
 				for (var i = 1; i <= 3; i++) {
 					sub_array.push(i);
 					super_array.push(sub_array[0]);
-					sub_array.slice(0);
+					sub_array.shift();
 				}
 				response.write("SUPER ARRAY...." + super_array + "....SUPER ARRAY");				
 			done();
