@@ -48,8 +48,8 @@ app.get([''], function(request, response) {
 					if (h == (testSQlValue.length-1))
 					{
 						
-						var x = document.getElementsByClassName("tempDataArrayVal");
-						var j;
+						// var x = document.getElementsByClassName("tempDataArrayVal");
+						// var j;
 						// for (j = 0; j < x.length; j++) {
 							// tempDataArray.Symbol = x[j].innerHTML;
 							// tempDataArray.Type = "price";
