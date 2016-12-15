@@ -44,7 +44,8 @@ app.get([''], function(request, response) {
 					// tempDataArray.Params = ["c"];
 					// graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
-					tempDataArray.Symbol = ticker;
+					var x = document.getElementsByClassName("tempDataArrayVal");
+					tempDataArray.Symbol = x[h].innerHTML;
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
