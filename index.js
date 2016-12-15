@@ -65,12 +65,12 @@ app.get([''], function(request, response) {
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};
-				for (var i = 1; i <= 3; i++) {
-					sub_array.push(i);
-					super_array.push(sub_array[0]);
-					sub_array.shift();
-				}
-				response.write("SUPER ARRAY...." + super_array + "....SUPER ARRAY");				
+				// for (var i = 1; i <= 3; i++) {
+					// sub_array.push(i);
+					// super_array.push(sub_array[0]);
+					// sub_array.shift();
+				// }
+				response.write("SUPER ARRAY...." + sub_array + "....SUPER ARRAY");				
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
