@@ -43,7 +43,7 @@ app.get([''], function(request, response) {
 					graphDataElement.LabelPeriod = "Month";
 					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					sub_array.push(ticker);
-					tempDataArray.Symbol = sub_array[0];
+					tempDataArray.Symbol = sub_array[h];
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
