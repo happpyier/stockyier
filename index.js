@@ -58,8 +58,6 @@ app.get([''], function(request, response) {
 						// }
 						// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						
-						response.write("SUPER ARRAY...." + super_array + "....SUPER ARRAY");
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};
@@ -68,7 +66,8 @@ app.get([''], function(request, response) {
 				for (var i = 1; i <= 3; i++) {
 					sub_array.push(i);
 					super_array.push(sub_array.slice(0));
-				}				
+				}
+				response.write("SUPER ARRAY...." + super_array + "....SUPER ARRAY");				
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
