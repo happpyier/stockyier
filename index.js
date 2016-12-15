@@ -22,6 +22,8 @@ var graphDataArrayEncoded;
 var graphDataElementName = "";
 var sub_array = [];
 var super_array = [];
+var preSuperArrayVal = "";
+var SuperArrayVal = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -42,7 +44,9 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
-					graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}");
+					preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
+					SuperArrayVal = preSuperArrayVal;
+					graphDataElement.Elements.push(preSuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
