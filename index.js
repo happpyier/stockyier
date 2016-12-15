@@ -56,7 +56,7 @@ app.get([''], function(request, response) {
 							// tempDataArray.Params = ["c"];
 							// graphDataElement.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
 						// }
-						graphDataElement.Elements.push(tempDataArray);
+						// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
