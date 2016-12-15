@@ -32,51 +32,35 @@ app.get([''], function(request, response) {
 				testSQlValue = result.rows;
 				graphDataElement.Elements = [];
 				tempDataArray.Symbol = "";
-				// for (var h=0; h<testSQlValue.length; h++){
-					// ticker = testSQlValue[h]["ticker"];
-					// tickerName = testSQlValue[h]["title"];
-					// graphDataElement.Normalized = false;
-					// graphDataElement.NumberOfDays = 365;
-					// graphDataElement.DataPeriod = "Day";
-					// graphDataElement.LabelPeriod = "Month";
-					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
-					// tempDataArray.Symbol += ticker;
-					// tempDataArray.Type = "price";
-					// tempDataArray.Params = ["c"];
-					// graphDataElement.Elements.push(tempDataArray);
-					// response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
-					// if (h == (testSQlValue.length-1))
-					// {
-						
-						// var x = document.getElementsByClassName("tempDataArrayVal");
-						// var j;
-						// for (j = 0; j < x.length; j++) {
-							// tempDataArray.Symbol = x[j].innerHTML;
-							// tempDataArray.Type = "price";
-							// tempDataArray.Params = ["c"];
-							// graphDataElement.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
-						// }
-						// graphDataElement.Elements.push(tempDataArray);
-						// graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						// response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
-					// }					
-				// };
-				testSQlValue.forEach(function (item) {
-					ticker = item["ticker"];
-					tickerName = item["title"];
+				for (var h=0; h<testSQlValue.length; h++){
+					ticker = testSQlValue[h]["ticker"];
+					tickerName = testSQlValue[h]["title"];
 					graphDataElement.Normalized = false;
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
-					tempDataArray.Symbol = item["ticker"][0];
+					tempDataArray.Symbol += ticker;
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
-				});
-				graphDataArrayEncoded = JSON.stringify(graphDataElement);
-				response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");	
+					if (h == (testSQlValue.length-1))
+					{
+						
+						var x = document.getElementsByClassName("tempDataArrayVal");
+						var j;
+						for (j = 0; j < x.length; j++) {
+							tempDataArray.Symbol = x[j].innerHTML;
+							tempDataArray.Type = "price";
+							tempDataArray.Params = ["c"];
+							graphDataElement.push("{'Symbol':'"+x[j].innerHTML+"'price','Params':['c']}");
+						}
+						graphDataElement.Elements.push(tempDataArray);
+						graphDataArrayEncoded = JSON.stringify(graphDataElement);
+						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+					}					
+				};	
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				if (err) 
