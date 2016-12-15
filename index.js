@@ -50,7 +50,7 @@ app.get([''], function(request, response) {
 					if (h == (testSQlValue.length-1))
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						response.write("<div id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+						response.write("<div class='hidden' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};
 							
