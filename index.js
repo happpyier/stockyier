@@ -42,7 +42,7 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
-					graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"'price','Params':['c']}");
+					graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+",'Type':'price','Params':['c']}");
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
