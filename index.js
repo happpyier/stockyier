@@ -39,11 +39,14 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
+					// tempDataArray.Symbol = ticker;
+					// tempDataArray.Type = "price";
+					// tempDataArray.Params = ["c"];
+					// graphDataElement.Elements.push(tempDataArray);
+					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
 					tempDataArray.Symbol = ticker;
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
-					graphDataElement.Elements.push(tempDataArray);
-					response.write("<div class='tempDataArrayVal'> " + ticker + "</div>");
 					graphDataElement.Elements.push(tempDataArray);
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
