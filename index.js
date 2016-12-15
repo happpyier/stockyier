@@ -45,8 +45,8 @@ app.get([''], function(request, response) {
 					tempDataArray.Symbol = sub_array[0];
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
-					graphDataElement.Elements.push(tempDataArray);
-					//graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"'price','Params':['c']}");
+					// graphDataElement.Elements.push(tempDataArray);
+					graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"'price','Params':['c']}");
 					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
