@@ -47,7 +47,7 @@ app.get([''], function(request, response) {
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
-					sub_array.shift();
+					//sub_array.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
