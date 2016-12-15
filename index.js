@@ -45,7 +45,7 @@ app.get([''], function(request, response) {
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
 					preSuperArrayVal = " " . "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}" . " ";
-					SuperArrayVal = preSuperArrayVal.replace(/^\"|\"$/, "");
+					SuperArrayVal = preSuperArrayVal;
 					graphDataElement.Elements.push(SuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
@@ -54,7 +54,7 @@ app.get([''], function(request, response) {
 					if (h == (testSQlValue.length-1))
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						response.write("<div class='hidden' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};
 							
