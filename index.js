@@ -58,13 +58,13 @@ app.get([''], function(request, response) {
 						// }
 						// graphDataElement.Elements.push(tempDataArray);
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-											var sub_array = [];
+						var sub_array = [];
 						var super_array = [];
 						for (var i = 1; i <= 3; i++) {
 							sub_array.push(i);
 							super_array.push(sub_array.slice(0));
 						}
-						alert(super_array);
+						response.write("SUPER ARRAY...." + super_array + "....SUPER ARRAY");
 						response.write("<div style='display:block;' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
 					}					
 				};	
