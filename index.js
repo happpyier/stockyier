@@ -42,13 +42,9 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
-					tempDataArray.Symbol = sub_array[0];
-					tempDataArray.Type = "price";
-					tempDataArray.Params = ["c"];
-					// graphDataElement.Elements.push(tempDataArray);
 					graphDataElement.Elements.push("{'Symbol':'"+sub_array[0]+"'price','Params':['c']}");
-					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
-					response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
+					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
+					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
