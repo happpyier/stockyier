@@ -20,6 +20,8 @@ var tempDataArray = {};
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
+var sub_array = [];
+var super_array = [];
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -40,10 +42,12 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
-					tempDataArray.Symbol += ticker;
+					sub_array.push(ticker);
+					tempDataArray.Symbol = sub_array[0];
 					tempDataArray.Type = "price";
 					tempDataArray.Params = ["c"];
 					graphDataElement.Elements.push(tempDataArray);
+					sub_array.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
