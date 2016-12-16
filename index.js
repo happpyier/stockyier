@@ -45,7 +45,7 @@ app.get([''], function(request, response) {
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
 					//preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
-					var tempSymbol = JSON.parse('{\'Symbol\':\''+sub_array[0]+'\',');
+					var tempSymbol = '{\'Symbol\':\''+sub_array[0]+'\',';
 					var tempType = JSON.parse('\'Type\':\'price,');
 					var tempParams = JSON.parse('\'Params\':[\'c\']}');
 					SuperArrayVal = tempSymbol+tempType+tempParams;
