@@ -21,7 +21,7 @@ var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
 var sub_array_ticker = [];
-var sub_array = [];
+var sub_array = {};
 var super_array = [];
 var preSuperArrayVal = "";
 var SuperArrayVal = "";
