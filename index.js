@@ -44,8 +44,8 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
-					preSuperArrayVal = ' ' + "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}" + ' ';
-					SuperArrayVal = preSuperArrayVal.toString().replace('"', 'Test');
+					preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
+					SuperArrayVal = preSuperArrayVal.toString().replace('\"', 'Test');
 					graphDataElement.Elements.push(SuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
