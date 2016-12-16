@@ -20,7 +20,7 @@ var tempDataArray = {};
 var pregraphDataArrayEncoded;
 var graphDataArrayEncoded;
 var graphDataElementName = "";
-var sub_array = [];
+var sub_array_ticker = [];
 var super_array = [];
 var preSuperArrayVal = "";
 var SuperArrayVal = "";
@@ -43,16 +43,16 @@ app.get([''], function(request, response) {
 					graphDataElement.NumberOfDays = 365;
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
-					sub_array.push(ticker);
-					preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
-					tempSymbol = '{\'Symbol\':\''+sub_array[0]+'\',';
-					tempType = '\'Type\':\'price,';
-					tempParams = '\'Params\':[\'c\']}';
-					SuperArrayVal = tempSymbol+tempType+tempParams;
+					sub_array_ticker.push(ticker);
+					//preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
+					sub_array.Symbol = +sub_array_ticker[0];
+					sub_array.Type = "price";
+					sub_array.Params = "['c']}";
+					SuperArrayVal = sub_array;
 					graphDataElement.Elements.push(SuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
-					sub_array.shift();
+					sub_array_ticker.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
