@@ -53,6 +53,7 @@ app.get([''], function(request, response) {
 					preSuperArrayVal = tempSymbol+tempType+tempParams;
 					SuperArrayVal = preSuperArrayVal;
 					graphDataElement.Elements.push(SuperArrayVal);
+					graphDataElement.Elements.replace("\"", "Test2");
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
