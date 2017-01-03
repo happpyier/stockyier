@@ -46,7 +46,7 @@ app.get([''], function(request, response) {
 					sub_array.push(ticker);
 					//preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
 					tempSymbol = '{\'Symbol\':\''+sub_array[0]+'\',';
-					tempType = '\'Type\':\'price,';
+					tempType = '\'Type\':\'price';
 					tempParams = '\'Params\':[\'c\']}';
 					//tempSymbol = pretempSymbol.replace("\"", "Test1");
 					//tempParams = pretempParams.replace("\"", "Test2");
