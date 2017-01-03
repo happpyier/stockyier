@@ -48,8 +48,8 @@ app.get([''], function(request, response) {
 					pretempSymbol = '{\'Symbol\':\''+sub_array[0]+'\',';
 					tempType = '\'Type\':\'price,';
 					pretempParams = '\'Params\':[\'c\']}';
-					tempSymbol = pretempSymbol.replace("'", "Test1");
-					tempParams = pretempParams.replace("'", "Test2");
+					tempSymbol = pretempSymbol.replace("\"", "Test1");
+					tempParams = pretempParams.replace("\"", "Test2");
 					SuperArrayVal = tempSymbol+tempType+tempParams;
 					graphDataElement.Elements.push(SuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
