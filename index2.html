@@ -6,7 +6,7 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
-						document.getElementById("chartDemoContainer").innerHTML = JSON.parse(document.getElementById('graph_results').innerHTML);
+						document.getElementById("chartDemoContainer").innerHTML = document.getElementById('graph_results').innerHTML;
 						//var x = document.getElementById("chartDemoContainer");
 						//var prey = typeof( x );
 						//var y = x;
@@ -22,6 +22,9 @@
 				loadGraph();
 				function secondGraph(graph_data)
 				{
+					var graph_data_usable = JSON.parse(graph_data);
+					alert (graph_data_usable);
+					/*
 					$(function () {
 
 							$.getJSON( document.getElementById("chartDemoContainer").innerHTML, function (data) {
@@ -44,6 +47,7 @@
 							});
 
 					});
+					*/
 				}
 				</script>
 				<div class="ticker">
