@@ -47,7 +47,7 @@ app.get([''], function(request, response) {
 					preSuperArrayVal = {};
 					preSuperArrayVal.Symbol = sub_array[0];
 					preSuperArrayVal.Type = 'price';
-					preSuperArrayVal.Params = '[\'c\']}';
+					preSuperArrayVal.Params = '[\'c\']';
 					//tempSymbol = pretempSymbol.replace("\"", "Test1");
 					//tempParams = pretempParams.replace("\"", "Test2");
 					//preSuperArrayVal = tempSymbol+tempType+tempParams;
