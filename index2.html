@@ -16,7 +16,7 @@
 
 					$(function () {
 
-						$.getJSON( 'http://dev.markitondemand.com/Api/v2/InteractiveChart/jsonp?&callback=?&parameters='+graphData, function (data) {
+						$.getJSON( document.getElementById("chartDemoContainer").innerHTML, function (data) {
 							// Create the chart
 							Highcharts.stockChart('container', {
 
