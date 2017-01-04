@@ -20,9 +20,9 @@
 				loadGraph();
 				function secondGraph()
 				{
-					var pre_graph_data = document.getElementById("graph_results").innerHTML;
-						var graph_data = "beg..." + pre_graph_data + "...end";
-						alert(graph_data);
+					document.getElementById("chartDemoContainer").innerHTML = document.getElementById("graph_results").innerHTML;
+						//var graph_data = "beg..." + pre_graph_data + "...end";
+						//alert(graph_data);
 					//var graph_data_usable = JSON.parse(graph_data);
 					/*
 					$(function () {
