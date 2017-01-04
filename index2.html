@@ -6,13 +6,13 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
-						document.getElementById("chartDemoContainer").innerHTML = document.getElementById('graph_results').innerHTML + "...Data";
+						document.getElementById("chartDemoContainer").innerHTML = JSON.parse(document.getElementById('graph_results').innerHTML);
 						//var x = document.getElementById("chartDemoContainer");
 						//var prey = typeof( x );
 						//var y = x;
 						//alert (y);
 						var pre_graph_data = document.getElementById("chartDemoContainer").innerHTML;
-						var graph_data = JSON.parse(pre_graph_data);
+						var graph_data = pre_graph_data;
 						secondGraph(graph_data);
 					}, 1000);
 	
