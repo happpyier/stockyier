@@ -44,10 +44,10 @@ app.get([''], function(request, response) {
 					graphDataElement.DataPeriod = "Day";
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
-					//preSuperArrayVal = "{'Symbol':'"+sub_array[0]+"','Type':'price','Params':['c']}";
-					tempSymbol = '{\'Symbol\':\''+sub_array[0]+'\',';
-					tempType = '\'Type\':\'price\',';
-					tempParams = '\'Params\':[\'c\']}';
+					preSuperArrayVal = {};
+					preSuperArrayVal.Symbol = sub_array[0];
+					preSuperArrayVal.Type = 'price';
+					preSuperArrayVal.Params = '[\'c\']}';
 					//tempSymbol = pretempSymbol.replace("\"", "Test1");
 					//tempParams = pretempParams.replace("\"", "Test2");
 					preSuperArrayVal = tempSymbol+tempType+tempParams;
