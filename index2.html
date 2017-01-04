@@ -11,37 +11,39 @@
 						//var prey = typeof( x );
 						//var y = x;
 						//alert (y);
+						var graph_data = document.getElementById("chartDemoContainer").innerHTML;
+						secondGraph(graph_data);
 					}, 1000);
 	
 
+					
+				}
+				loadGraph();
+				function secondGraph(graph_data)
+				{
 					$(function () {
 
-						$.getJSON( document.getElementById("chartDemoContainer").innerHTML, function (data) {
-							// Create the chart
-							Highcharts.stockChart('container', {
-
-
-								rangeSelector: {
-									selected: 1
-								},
-
-								title: {
-									text: 'AAPL Stock Price'
-								},
-
-								series: [{
-									name: 'AAPL',
-									data: data,
-									tooltip: {
-										valueDecimals: 2
-									}
-								}]
+							$.getJSON( document.getElementById("chartDemoContainer").innerHTML, function (data) {
+								// Create the chart
+								Highcharts.stockChart('container', {
+									rangeSelector: {
+										selected: 1
+									},
+									title: {
+										text: 'AAPL Stock Price'
+									},
+									series: [{
+										name: 'AAPL',
+										data: graph_data,
+										tooltip: {
+											valueDecimals: 2
+										}
+									}]
+								});
 							});
-						});
 
 					});
 				}
-				loadGraph();
 				</script>
 				<div class="ticker">
 					Syncs in realtime across clients
