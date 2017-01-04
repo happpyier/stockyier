@@ -6,7 +6,12 @@
 					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
-						document.getElementById("chartDemoContainer").innerHTML = document.getElementById('graph_results').contentWindow;
+						Uncaught DOMException: Blocked a frame with origin "http://stockyier.herokuapp.com" from accessing a cross-origin frame.
+    at http://stockyier.herokuapp.com/:69:63 
+						document.getElementById("chartDemoContainer").innerHTML = 'Uncaught DOMException: Blocked a frame with origin "http://stockyier.herokuapp.com" from accessing a cross-origin frame. at http://stockyier.herokuapp.com/:69:63 ----- When using document.getElementById("graph_results").contentWindow.innerHTML';
+						//document.getElementById("chartDemoContainer").innerHTML = document.getElementById('graph_results').contentWindow;
+						
+						
 						//var x = document.getElementById("chartDemoContainer");
 						//var prey = typeof( x );
 						//var y = x;
@@ -20,7 +25,7 @@
 				loadGraph();
 				function secondGraph()
 				{
-					document.getElementById("container").innerHTML = "Beginning..." + document.getElementById("graph_results").contentWindow.innerHTML + "...End";
+					document.getElementById("container").innerHTML = "Beginning..." + document.getElementById("chartDemoContainer").innerHTML + "...End";
 						//var graph_data = "beg..." + pre_graph_data + "...end";
 						//alert(graph_data);
 					//var graph_data_usable = JSON.parse(graph_data);
