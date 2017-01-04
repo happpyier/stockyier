@@ -11,9 +11,6 @@
 						//var prey = typeof( x );
 						//var y = x;
 						//alert (y);
-						var pre_graph_data = document.getElementById("graph_results").innerHTML;
-						var graph_data = pre_graph_data+"test";
-						alert(graph_data)
 						secondGraph(graph_data);
 					}, 1000);
 	
@@ -23,6 +20,9 @@
 				loadGraph();
 				function secondGraph(graph_data)
 				{
+					var pre_graph_data = document.getElementById("graph_results").innerHTML;
+						var graph_data = "beg..." + pre_graph_data + "...end";
+						alert(graph_data)
 					//var graph_data_usable = JSON.parse(graph_data);
 					/*
 					$(function () {
