@@ -50,7 +50,7 @@ app.get([''], function(request, response) {
 					preSuperArrayVal.Params = '[\'c\']}';
 					//tempSymbol = pretempSymbol.replace("\"", "Test1");
 					//tempParams = pretempParams.replace("\"", "Test2");
-					preSuperArrayVal = tempSymbol+tempType+tempParams;
+					//preSuperArrayVal = tempSymbol+tempType+tempParams;
 					SuperArrayVal = preSuperArrayVal;
 					graphDataElement.Elements.push(SuperArrayVal);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
