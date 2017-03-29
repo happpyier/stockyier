@@ -18,6 +18,7 @@
 						//alert (y);
 						var graph_data = ['HOG', 'LUV', 'GOOG']; //doesn't work
 						//var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
+						
 						secondGraph(graph_data);
 						//alert (graph_data)
 						//names = ['MSFT', 'AAPL', 'GOOG']
@@ -82,6 +83,7 @@
 							seriesOptions[i] = {
 								name: name,
 								data: data
+								//USE THE Elements.DataSeries.close.values for data.
 							};
 
 							// As we're loading the data asynchronously, we don't know what order it will arrive. So
