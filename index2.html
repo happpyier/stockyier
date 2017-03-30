@@ -3,7 +3,8 @@
 				{
 					
 					//var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
-					var graphNames = $('#graphNames_hidden').contents();
+					var pregraphNames = document.getElementById("graphNames_hidden").innerHTML; 
+					var graphNames = pregraphNames.split(",");
 					//var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					//document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
@@ -34,7 +35,7 @@
 					var seriesOptions = [],
 					seriesCounter = 0,
 					names = graph_data_names;
-					alert(names);
+					alert(typeof(names));
 					/**
 					 * Create the chart when all data is loaded
 					 * @returns {undefined}
