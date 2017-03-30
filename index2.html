@@ -80,8 +80,8 @@
 
 					$.each(names, function (i, name) {
 
-						$.getJSON(URL,    function (data) {
-
+						$.getJSON(URL+'&callback=?',    function (data) {
+							//https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?'
 							seriesOptions[i] = {
 								name: name,
 								data: data.Elements.DataSeries.close.values
