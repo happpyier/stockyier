@@ -80,7 +80,7 @@
 
 					$.each(names, function (i, name) {
 
-						$.getJSON(URL+'&callback=?',    function (data) {
+						$.getJSON(URL+'&callback=http://stockyier.herokuapp.com/',    function (data) {
 							//https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?'
 							seriesOptions[i] = {
 								name: name,
