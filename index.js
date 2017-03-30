@@ -37,6 +37,7 @@ app.get([''], function(request, response) {
 				testSQlValue = result.rows;
 				graphDataElement.Elements = [];
 				tempDataArray.Symbol = "";
+				graphNames = [];
 				for (var h=0; h<testSQlValue.length; h++){
 					ticker = testSQlValue[h]["ticker"];
 					tickerName = testSQlValue[h]["title"];
