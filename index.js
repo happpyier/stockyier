@@ -14,6 +14,7 @@ var tickerId = "";
 var tickerStatus = "";
 var alertVar;
 var graphDataElement = {};
+var graphNames = [];
 var graphDataArray = [];
 var pretempDataArray = {};
 var tempDataArray = {};
@@ -53,6 +54,7 @@ app.get([''], function(request, response) {
 					//preSuperArrayVal = tempSymbol+tempType+tempParams;
 					SuperArrayVal = preSuperArrayVal;
 					graphDataElement.Elements.push(SuperArrayVal);
+					graphNames.push(tickerName);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
@@ -60,7 +62,8 @@ app.get([''], function(request, response) {
 					if (h == (testSQlValue.length-1))
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
-						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div>");
+						graphNamesEncoded = JSON.stringify(graphNames);
+						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden'>" + graphNamesEncoded + "</div>");
 					}					
 				};
 							
