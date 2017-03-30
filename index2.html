@@ -5,7 +5,7 @@
 					//var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
 					var pregraphNames = document.getElementById("graphNames_hidden").innerHTML; 
 					var graphNames = pregraphNames.split(",");
-					//var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
+					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					//document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
 						//document.getElementById("chartDemoContainer").innerHTML = 'Uncaught DOMException: Blocked a frame with origin "http://stockyier.herokuapp.com" from accessing a cross-origin frame. at http://stockyier.herokuapp.com/:69:63 ----- When using document.getElementById("graph_results").contentWindow.innerHTML';
@@ -21,7 +21,7 @@
 						var graph_data = graphNames; //doesn't work
 						//var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
 						
-						secondGraph(graph_data);
+						secondGraph(graph_data, URL);
 						//alert (graph_data)
 						//names = ['MSFT', 'AAPL', 'GOOG']
 					}, 1000);
@@ -30,7 +30,7 @@
 					
 				}
 				loadGraph();
-				function secondGraph(graph_data_names)
+				function secondGraph(graph_data_names, URL)
 				{
 					var seriesOptions = [],
 					seriesCounter = 0,
@@ -80,11 +80,11 @@
 
 					$.each(names, function (i, name) {
 
-						$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?',    function (data) {
+						$.getJSON(URL,    function (data) {
 
 							seriesOptions[i] = {
 								name: name,
-								data: data
+								data: data.Elements.DataSeries.close.values
 								//USE THE Elements.DataSeries.close.values for data.
 							};
 
