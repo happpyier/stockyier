@@ -18,7 +18,7 @@
 						//var y = x;
 						//alert (y);
 						var graph_data = graphNames; //doesn't work
-						//var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
+						var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
 						
 						secondGraph(graph_data);
 						//alert (graph_data)
@@ -34,7 +34,7 @@
 					var seriesOptions = [],
 					seriesCounter = 0,
 					names = graph_data_names;
-					alert(names);
+					alert(typeof(names));
 					/**
 					 * Create the chart when all data is loaded
 					 * @returns {undefined}
