@@ -54,16 +54,16 @@ app.get([''], function(request, response) {
 					//preSuperArrayVal = tempSymbol+tempType+tempParams;
 					SuperArrayVal = preSuperArrayVal;
 					graphDataElement.Elements.push(SuperArrayVal);
-					graphNames.push(tickerName);
 					// response.write("<div class='tempDataArrayVal'>" + ticker + "</div>");
 					// response.write("SUPER ARRAY...." + h + sub_array + "....SUPER ARRAY" + h);	
 					sub_array.shift();
 					response.write("<div class='ticker'> <boldHeader >" + ticker + "</boldHeader> <button class='borderless' onclick="+"removeTicker('"+ticker+"')"+">x</button> <br/><br/>" + tickerName + "(" + ticker + ") Prices, 	Dividends, Splits and Trading Volume </div>");
 					if (h == (testSQlValue.length-1))
 					{
+						graphNames = sub_array;
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						graphNamesEncoded = JSON.stringify(graphNames);
-						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden'>" + graphNamesEncoded + "</div>");
+						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden1'>" + graphNamesEncoded + "</div>");
 					}					
 				};
 							
