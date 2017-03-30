@@ -63,7 +63,7 @@ app.get([''], function(request, response) {
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						graphNamesEncoded = JSON.stringify(graphNames);
-						response.write("<div class='hidden' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden1'>" + graphNamesEncoded + "</div>");
+						response.write("<div class='hidden' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden'>" + graphNamesEncoded + "</div>");
 					}					
 				};
 							

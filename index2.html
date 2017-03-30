@@ -2,8 +2,9 @@
 				function loadGraph()
 				{
 					
-					var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
-					var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
+					//var graphData = document.getElementById("graphDataArrayEncoded_hidden").innerHTML;
+					var graphNames = document.getElementById("graphNames_hidden").innerHTML;
+					//var URL = "http://dev.markitondemand.com/Api/v2/InteractiveChart/json?parameters="+graphData;
 					//document.getElementById('graph_results').src = URL;
 					setTimeout(function(){
 						//document.getElementById("chartDemoContainer").innerHTML = 'Uncaught DOMException: Blocked a frame with origin "http://stockyier.herokuapp.com" from accessing a cross-origin frame. at http://stockyier.herokuapp.com/:69:63 ----- When using document.getElementById("graph_results").contentWindow.innerHTML';
@@ -16,7 +17,7 @@
 						//var prey = typeof( x );
 						//var y = x;
 						//alert (y);
-						var graph_data = ['HOG', 'LUV', 'GOOG']; //doesn't work
+						var graph_data = graphNames; //doesn't work
 						//var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
 						
 						secondGraph(graph_data);
@@ -33,7 +34,7 @@
 					var seriesOptions = [],
 					seriesCounter = 0,
 					names = graph_data_names;
-
+					alert(names);
 					/**
 					 * Create the chart when all data is loaded
 					 * @returns {undefined}
