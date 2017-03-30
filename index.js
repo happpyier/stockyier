@@ -46,7 +46,7 @@ app.get([''], function(request, response) {
 					graphDataElement.LabelPeriod = "Month";
 					sub_array.push(ticker);
 					preSuperArrayVal = {};
-					preSuperArrayVal.Symbol = ;
+					preSuperArrayVal.Symbol = sub_array[0];
 					preSuperArrayVal.Type = 'price';
 					preSuperArrayVal.Params = ["c"];
 					//tempSymbol = pretempSymbol.replace("\"", "Test1");
@@ -63,7 +63,7 @@ app.get([''], function(request, response) {
 					{
 						graphDataArrayEncoded = JSON.stringify(graphDataElement);
 						graphNamesEncoded = JSON.stringify(graphNames);
-						response.write("<div class='hidden1' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden1'>" + graphNamesEncoded + "</div>");
+						response.write("<div class='hidden' id='graphDataArrayEncoded_hidden'>" + graphDataArrayEncoded + "</div> <div class='hidden' id='graphNames_hidden1'>" + graphNamesEncoded + "</div>");
 					}					
 				};
 							
