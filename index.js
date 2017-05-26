@@ -90,21 +90,6 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 	}
 	else
 	{
-		googleFinance.companyNews(
-			{
-			  symbol: SYMBOL
-			}, 
-			function (err, data)
-			{
-			  /*
-			  [
-				{
-				  "symbol": "NASDAQ:AAPL",
-				}
-			  ]
-			  */
-			});
-	
 		markit.getQuote(tickerId, function(err, data) {
 			tickerStatus = data.Status;
 			var titleId = data.Name;
