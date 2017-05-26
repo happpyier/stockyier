@@ -22,7 +22,8 @@
 						var graph_data = ['MSFT', 'AAPL', 'GOOG']; //works
 						
 						secondGraph(graph_data, URL);
-						//alert (graph_data)
+						alert (graph_data);
+						alert (URL);
 						//names = ['MSFT', 'AAPL', 'GOOG']
 					}, 1000);
 	
@@ -80,7 +81,7 @@
 
 					$.each(names, function (i, name) {
 
-						$.getJSON(URL+'&callback=http://stockyier.herokuapp.com/',    function (data) {
+						$.getJSON(URL+ + name.toLowerCase() + '-c.json&callback=?',    function (data) {
 							//https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?'
 							seriesOptions[i] = {
 								name: name,

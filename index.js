@@ -7,6 +7,7 @@ var path = require("path");
 var url = require("url");
 var googleFinance = require('google-finance');
 var markit = require('node-markitondemand');
+var Highcharts = require('highcharts/highstock');
 var _screen_name;
 var ticker;
 var tickerName = "";
