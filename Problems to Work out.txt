@@ -1,0 +1,2 @@
+1. When adding a ticker symbol that is incorrect "Application Error" shows up.
+2. Chart is not available.
