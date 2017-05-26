@@ -84,8 +84,9 @@
 						$.getJSON(URL + '&callback=?',    function (data) {
 							//https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?'
 							seriesOptions[i] = {
-								name: name,
-								data: data.Elements.DataSeries.close.values
+								name:name
+								//name: name,
+								//data: data.Elements.DataSeries.close.values
 								//USE THE Elements.DataSeries.close.values for data.
 							};
 
