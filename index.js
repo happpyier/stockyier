@@ -72,6 +72,10 @@ app.get([''], function(request, response) {
 							
 			done();
 			fs.readFile('index2.html', 'utf8', function (err,data) {
+				markit.getInteractive(graphDataArrayEncoded, function(err, data) {
+					_tickerStatus_ = data;
+					alert (_tickerStatus_);
+				});
 				if (err) 
 				{
 					return console.log(err);
@@ -131,6 +135,7 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 		});
 
 	}
+
 });
 app.get(['/tickerRemove/:id/'], function(request, response) {
 	tickerId = request.params.id;
