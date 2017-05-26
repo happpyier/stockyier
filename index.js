@@ -5,6 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
+var googleFinance = require('google-finance');
 var markit = require('node-markitondemand');
 var _screen_name;
 var ticker;
@@ -89,6 +90,21 @@ app.get(['/tickersearch/:id/'], function(request, response) {
 	}
 	else
 	{
+		googleFinance.companyNews(
+			{
+			  symbol: SYMBOL
+			}, 
+			function (err, data)
+			{
+			  /*
+			  [
+				{
+				  "symbol": "NASDAQ:AAPL",
+				}
+			  ]
+			  */
+			});
+	
 		markit.getQuote(tickerId, function(err, data) {
 			tickerStatus = data.Status;
 			var titleId = data.Name;
