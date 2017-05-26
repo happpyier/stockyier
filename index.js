@@ -74,7 +74,7 @@ app.get([''], function(request, response) {
 			fs.readFile('index2.html', 'utf8', function (err,data) {
 				markit.getInteractive(graphDataArrayEncoded, function(err, data) {
 					_tickerStatus_ = data;
-					alert (_tickerStatus_);
+					response.write("<div  id='g'>" + data + "</div>");
 				});
 				if (err) 
 				{
